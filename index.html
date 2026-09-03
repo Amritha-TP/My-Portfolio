@@ -1,2459 +1,639 @@
 <!DOCTYPE html>
+
 <html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Amritha Thirupathi Ponram | ML Engineer & AI Educator</title>
 
-    <meta name="description"
-        content="Portfolio of Amritha Thirupathi Ponram, a Machine Learning Engineer building computer vision, NLP, and predictive-modeling systems end-to-end.">
+<title>Amritha Thirupathi Ponram | ML Engineer & AI Educator</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="description"
+    content="Portfolio of Amritha Thirupathi Ponram, a Machine Learning Engineer building computer vision, NLP, and predictive-modeling systems end-to-end.">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
 
-    <!-- Iconify -->
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
-            theme: {
-                extend: {
+<script>
+    tailwind.config = {
+        darkMode: 'class',
 
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    mono: ['JetBrains Mono', 'monospace'],
+                },
 
-                    colors: {
-                        background: '#0a0a0a',
-                        surface: '#171717',
-                        border: '#262626',
-                        primary: '#ededed',
-                        secondary: '#a1a1aa',
-                    },
+                colors: {
+                    background: '#0a0a0a',
+                    surface: '#171717',
+                    border: '#262626',
+                    primary: '#ededed',
+                    secondary: '#a1a1aa',
+                },
 
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                        'slide-up': 'slideUp 0.7s ease-out forwards',
-                    },
+                animation: {
+                    'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    'slide-up': 'slideUp 0.7s ease-out forwards',
+                },
 
-                    keyframes: {
-
-                        fadeIn: {
-                            '0%': {
-                                opacity: '0'
-                            },
-                            '100%': {
-                                opacity: '1'
-                            }
+                keyframes: {
+                    fadeIn: {
+                        '0%': {
+                            opacity: '0'
                         },
+                        '100%': {
+                            opacity: '1'
+                        }
+                    },
 
-                        slideUp: {
-                            '0%': {
-                                opacity: '0',
-                                transform: 'translateY(20px)'
-                            },
-                            '100%': {
-                                opacity: '1',
-                                transform: 'translateY(0)'
-                            }
+                    slideUp: {
+                        '0%': {
+                            opacity: '0',
+                            transform: 'translateY(20px)'
+                        },
+                        '100%': {
+                            opacity: '1',
+                            transform: 'translateY(0)'
                         }
                     }
                 }
             }
         }
-    </script>
+    }
+</script>
 
-    <style>
+<style>
 
-        /* =========================================================
-           GLOBAL
-        ========================================================= */
+    * {
+        box-sizing: border-box;
+    }
 
-        html {
-            scroll-behavior: smooth;
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    .glass-nav {
+        background: rgba(10, 10, 10, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 40px -10px rgba(255, 255, 255, 0.05);
+    }
+
+    .bg-grid {
+        background-size: 40px 40px;
+        background-image:
+            linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+
+    .glow-bg {
+        background: radial-gradient(
+            circle at 50% 0%,
+            rgba(61, 90, 128, 0.18) 0%,
+            transparent 50%
+        );
+    }
+
+    /* =========================================================
+       PROFILE IMAGE
+    ========================================================= */
+
+    .profile-image-wrapper {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border-radius: 28px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: #171717;
+        box-shadow:
+            0 25px 60px rgba(0, 0, 0, 0.45),
+            0 0 40px rgba(99, 102, 241, 0.08);
+    }
+
+    .profile-image-wrapper::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+        pointer-events: none;
+    }
+
+    .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* =========================================================
+       PROJECT VISUALS
+    ========================================================= */
+
+    .project-visual {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .project-visual svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .weld-beam {
+        animation: weldScan 3s ease-in-out infinite;
+    }
+
+    .weld-pulse {
+        animation: weldPulse 1.8s ease-in-out infinite;
+        transform-origin: center;
+    }
+
+    .weld-defect {
+        animation: defectBlink 2s ease-in-out infinite;
+    }
+
+    .sentiment-bar {
+        transform-origin: bottom;
+        animation: sentimentGrow 2.5s ease-in-out infinite alternate;
+    }
+
+    .sentiment-pulse {
+        animation: sentimentPulse 2s ease-in-out infinite;
+    }
+
+    .sentiment-dot {
+        animation: sentimentDot 1.8s ease-in-out infinite;
+    }
+
+    @keyframes weldScan {
+
+        0% {
+            transform: translateX(-140px);
+            opacity: 0;
         }
 
-        body {
-            overflow-x: hidden;
+        20% {
+            opacity: 1;
         }
 
-
-        /* =========================================================
-           NAV
-        ========================================================= */
-
-        .glass-nav {
-            background: rgba(10, 10, 10, 0.78);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        80% {
+            opacity: 1;
         }
 
+        100% {
+            transform: translateX(600px);
+            opacity: 0;
+        }
+    }
 
-        /* =========================================================
-           CARDS
-        ========================================================= */
+    @keyframes weldPulse {
 
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        0%, 100% {
+            opacity: 0.35;
+            transform: scale(0.95);
         }
 
-        .card-hover:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 40px -10px rgba(255, 255, 255, 0.05);
+        50% {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+    }
+
+    @keyframes defectBlink {
+
+        0%, 100% {
+            opacity: 0.45;
         }
 
+        50% {
+            opacity: 1;
+        }
+    }
 
-        /* =========================================================
-           BACKGROUND
-        ========================================================= */
+    @keyframes sentimentGrow {
 
-        .bg-grid {
-            background-size: 40px 40px;
-
-            background-image:
-                linear-gradient(
-                    to right,
-                    rgba(255, 255, 255, 0.02) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    to bottom,
-                    rgba(255, 255, 255, 0.02) 1px,
-                    transparent 1px
-                );
+        0% {
+            transform: scaleY(0.65);
         }
 
-        .glow-bg {
-            background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(61, 90, 128, 0.18) 0%,
-                    transparent 50%
-                );
+        100% {
+            transform: scaleY(1);
+        }
+    }
+
+    @keyframes sentimentPulse {
+
+        0%, 100% {
+            opacity: 0.35;
         }
 
+        50% {
+            opacity: 1;
+        }
+    }
 
-        /* =========================================================
-           PROFILE IMAGE
-        ========================================================= */
+    @keyframes sentimentDot {
+
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+
+    /* =========================================================
+       MOBILE / TABLET
+    ========================================================= */
+
+    @media (max-width: 1024px) {
 
         .profile-image-wrapper {
-            position: relative;
+            width: 260px;
+            height: 260px;
+        }
+    }
+
+    @media (max-width: 767px) {
+
+        .profile-image-wrapper {
+            width: 220px;
+            height: 220px;
+            border-radius: 24px;
         }
 
-        .profile-image-wrapper::before {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            border-radius: 1.5rem;
-            background: linear-gradient(
-                135deg,
-                rgba(129, 140, 248, 0.45),
-                transparent 45%,
-                rgba(168, 85, 247, 0.25)
-            );
-            opacity: 0.7;
-            pointer-events: none;
+        .hero-name {
+            font-size: 2.5rem;
+            line-height: 1.08;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .profile-image-wrapper {
+            width: 190px;
+            height: 190px;
         }
 
-        .profile-image {
-            position: relative;
-            z-index: 1;
+        .hero-name {
+            font-size: 2.15rem;
         }
+    }
 
+    @media (prefers-reduced-motion: reduce) {
 
-        /* =========================================================
-           PROJECT VISUALS
-        ========================================================= */
-
-        .project-visual {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-visual svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .weld-beam {
-            animation: weldScan 3s ease-in-out infinite;
-        }
-
-        .weld-pulse {
-            animation: weldPulse 1.8s ease-in-out infinite;
-            transform-origin: center;
-        }
-
-        .weld-defect {
-            animation: defectBlink 2s ease-in-out infinite;
-        }
-
-        .sentiment-bar {
-            transform-origin: bottom;
-            animation: sentimentGrow 2.5s ease-in-out infinite alternate;
-        }
-
-        .sentiment-pulse {
-            animation: sentimentPulse 2s ease-in-out infinite;
-        }
-
+        .weld-beam,
+        .weld-pulse,
+        .weld-defect,
+        .sentiment-bar,
+        .sentiment-pulse,
         .sentiment-dot {
-            animation: sentimentDot 1.8s ease-in-out infinite;
+            animation: none;
         }
+    }
 
+</style>
+```
 
-        /* =========================================================
-           ANIMATIONS
-        ========================================================= */
-
-        @keyframes weldScan {
-
-            0% {
-                transform: translateX(-140px);
-                opacity: 0;
-            }
-
-            20% {
-                opacity: 1;
-            }
-
-            80% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(600px);
-                opacity: 0;
-            }
-        }
-
-        @keyframes weldPulse {
-
-            0%,
-            100% {
-                opacity: 0.35;
-                transform: scale(0.95);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-        }
-
-        @keyframes defectBlink {
-
-            0%,
-            100% {
-                opacity: 0.45;
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes sentimentGrow {
-
-            0% {
-                transform: scaleY(0.65);
-            }
-
-            100% {
-                transform: scaleY(1);
-            }
-        }
-
-        @keyframes sentimentPulse {
-
-            0%,
-            100% {
-                opacity: 0.35;
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes sentimentDot {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
-
-        @media (max-width: 767px) {
-
-            .profile-image-wrapper {
-                margin-top: 1rem;
-            }
-
-            .profile-image {
-                width: 180px;
-                height: 180px;
-            }
-
-            .hero-heading {
-                font-size: 2.5rem;
-                line-height: 1.1;
-            }
-        }
-
-
-        /* =========================================================
-           TABLET
-        ========================================================= */
-
-        @media (min-width: 768px) and (max-width: 1023px) {
-
-            .profile-image {
-                width: 210px;
-                height: 210px;
-            }
-
-            .hero-heading {
-                font-size: 3.5rem;
-            }
-        }
-
-
-        /* =========================================================
-           REDUCED MOTION
-        ========================================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .weld-beam,
-            .weld-pulse,
-            .weld-defect,
-            .sentiment-bar,
-            .sentiment-pulse,
-            .sentiment-dot {
-                animation: none;
-            }
-
-            html {
-                scroll-behavior: auto;
-            }
-        }
-
-    </style>
 </head>
-
 
 <body
     class="bg-background text-secondary font-sans antialiased selection:bg-white/20 selection:text-white overflow-x-hidden">
 
+```
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
-    <!-- =========================================================
-         NAVIGATION
-    ========================================================= -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
 
-    <nav class="fixed top-0 w-full z-50 glass-nav">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between">
 
-        <div
-            class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <a href="#"
+            class="text-primary font-semibold tracking-tight text-lg flex items-center gap-2 group">
 
-            <a
-                href="#"
-                class="text-primary font-semibold tracking-tight text-lg flex items-center gap-2 group">
+            <span
+                class="bg-white text-black text-xs font-bold px-1.5 py-0.5 rounded-md group-hover:scale-110 transition-transform">
+                ATP
+            </span>
 
-                <span
-                    class="bg-white text-black text-xs font-bold px-1.5 py-0.5 rounded-md group-hover:scale-110 transition-transform">
-                    ATP
-                </span>
+            <span class="hidden sm:inline">
+                Amritha Thirupathi Ponram
+            </span>
 
-                <span class="hidden sm:inline">
-                    Amritha Thirupathi Ponram
-                </span>
-
-            </a>
+        </a>
 
 
-            <!-- Desktop Navigation -->
+        <!-- Desktop Navigation -->
 
-            <div
-                class="hidden md:flex items-center gap-5 lg:gap-8 text-sm font-medium">
+        <div class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium">
 
-                <a href="#about" class="hover:text-white transition-colors">
-                    About
-                </a>
-
-                <a href="#skills" class="hover:text-white transition-colors">
-                    Skills
-                </a>
-
-                <a href="#projects" class="hover:text-white transition-colors">
-                    Projects
-                </a>
-
-                <a href="#experience" class="hover:text-white transition-colors">
-                    Experience
-                </a>
-
-                <a href="#teaching" class="hover:text-white transition-colors">
-                    Teaching
-                </a>
-
-                <a
-                    href="#contact"
-                    class="px-4 py-2 bg-white text-black rounded-full hover:bg-neutral-200 transition-colors">
-                    Contact
-                </a>
-
-            </div>
-
-
-            <!-- Mobile Menu Button -->
-
-            <button
-                class="md:hidden text-white p-2"
-                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
-                aria-label="Open menu">
-
-                <span
-                    class="iconify"
-                    data-icon="lucide:menu"
-                    data-width="24">
-                </span>
-
-            </button>
-
-        </div>
-
-
-        <!-- Mobile Menu -->
-
-        <div
-            id="mobile-menu"
-            class="hidden absolute top-16 left-0 w-full bg-surface border-b border-border p-6 flex flex-col gap-5 md:hidden">
-
-            <a href="#about" class="block hover:text-white">
+            <a href="#about" class="hover:text-white transition-colors">
                 About
             </a>
 
-            <a href="#skills" class="block hover:text-white">
+            <a href="#skills" class="hover:text-white transition-colors">
                 Skills
             </a>
 
-            <a href="#projects" class="block hover:text-white">
+            <a href="#projects" class="hover:text-white transition-colors">
                 Projects
             </a>
 
-            <a href="#experience" class="block hover:text-white">
+            <a href="#experience" class="hover:text-white transition-colors">
                 Experience
             </a>
 
-            <a href="#teaching" class="block hover:text-white">
+            <a href="#teaching" class="hover:text-white transition-colors">
                 Teaching
             </a>
 
-            <a href="#contact" class="block text-white font-semibold">
+            <a href="#contact"
+                class="px-4 py-2 bg-white text-black rounded-full hover:bg-neutral-200 transition-colors">
                 Contact
             </a>
 
         </div>
 
-    </nav>
 
+        <!-- Mobile Menu Button -->
 
-    <!-- =========================================================
-         HERO
-         PHOTO LEFT ON DESKTOP/TABLET
-         PHOTO TOP ON MOBILE
-    ========================================================= -->
-
-    <section
-        class="relative min-h-screen flex flex-col justify-center pt-24 pb-16 px-5 sm:px-6 bg-grid">
-
-        <div
-            class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] max-w-[100vw] h-[500px] glow-bg opacity-60 pointer-events-none">
-        </div>
-
-
-        <div
-            class="max-w-6xl mx-auto w-full relative z-10
-                   flex flex-col md:flex-row
-                   items-center md:items-center
-                   justify-center
-                   gap-10 md:gap-12 lg:gap-20">
-
-
-            <!-- =====================================================
-                 PHOTO — LEFT
-            ====================================================== -->
-
-            <div
-                class="flex-shrink-0 animate-slide-up">
-
-                <div
-                    class="profile-image-wrapper
-                           w-48 h-48
-                           sm:w-56 sm:h-56
-                           md:w-56 md:h-56
-                           lg:w-64 lg:h-64
-                           rounded-3xl
-                           overflow-hidden
-                           bg-surface
-                           border border-white/10
-                           shadow-2xl">
-
-                    <img
-                        src="amritha.png"
-                        alt="Amritha Thirupathi Ponram"
-                        class="profile-image w-full h-full object-cover">
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================================
-                 HERO CONTENT — RIGHT
-            ====================================================== -->
-
-            <div
-                class="animate-slide-up
-                       space-y-7
-                       max-w-3xl
-                       text-center md:text-left">
-
-
-                <!-- Availability -->
-
-                <div
-                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full
-                           border border-white/10 bg-white/5
-                           text-xs font-medium text-white
-                           backdrop-blur-sm">
-
-                    <span class="relative flex h-2 w-2">
-
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75">
-                        </span>
-
-                        <span
-                            class="relative inline-flex rounded-full h-2 w-2 bg-green-500">
-                        </span>
-
-                    </span>
-
-                    Open to opportunities in ML engineering & AI education
-
-                </div>
-
-
-                <!-- Heading -->
-
-                <h1
-                    class="hero-heading
-                           text-4xl sm:text-5xl md:text-6xl lg:text-7xl
-                           font-semibold tracking-tighter
-                           text-white leading-[1.1]">
-
-                    I build ML systems
-
-                    <br class="hidden md:block">
-
-                    <span class="text-neutral-500">
-                        and teach how they work.
-                    </span>
-
-                </h1>
-
-
-                <!-- Description -->
-
-                <p
-                    class="text-base sm:text-lg md:text-xl
-                           text-secondary
-                           max-w-2xl
-                           mx-auto md:mx-0
-                           leading-relaxed">
-
-                    Machine Learning Engineer building computer vision,
-                    NLP, and predictive-modeling systems end to end —
-                    from data to deployment — with a growing focus on
-                    mentoring and technical education.
-
-                </p>
-
-
-                <!-- Buttons -->
-
-                <div
-                    class="flex flex-col sm:flex-row
-                           gap-4
-                           justify-center md:justify-start
-                           items-center
-                           pt-2">
-
-                    <a
-                        href="#projects"
-                        class="w-full sm:w-auto
-                               px-8 py-3
-                               bg-white text-black
-                               font-medium rounded-full
-                               hover:bg-neutral-200
-                               transition-all
-                               flex items-center justify-center gap-2">
-
-                        View Projects
-
-                        <span
-                            class="iconify"
-                            data-icon="lucide:arrow-right"
-                            data-width="18">
-                        </span>
-
-                    </a>
-
-
-                    <a
-                        href="mailto:amritha.tponram@gmail.com"
-                        class="w-full sm:w-auto
-                               px-8 py-3
-                               border border-border
-                               text-white font-medium
-                               rounded-full
-                               hover:bg-white/5
-                               transition-all
-                               flex items-center justify-center gap-2">
-
-                        <span
-                            class="iconify"
-                            data-icon="lucide:mail"
-                            data-width="18">
-                        </span>
-
-                        Get in Touch
-
-                    </a>
-
-
-                    <!-- Social -->
-
-                    <div class="flex gap-4 sm:ml-2">
-
-                        <a
-                            href="https://github.com/Amritha-TP"
-                            target="_blank"
-                            rel="noopener"
-                            class="p-3 text-secondary hover:text-white transition-colors"
-                            aria-label="GitHub">
-
-                            <span
-                                class="iconify"
-                                data-icon="lucide:github"
-                                data-width="22">
-                            </span>
-
-                        </a>
-
-
-                        <a
-                            href="https://www.linkedin.com/in/amritha-t-p-ab735a1a6/"
-                            target="_blank"
-                            rel="noopener"
-                            class="p-3 text-secondary hover:text-white transition-colors"
-                            aria-label="LinkedIn">
-
-                            <span
-                                class="iconify"
-                                data-icon="lucide:linkedin"
-                                data-width="22">
-                            </span>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Scroll -->
-
-        <div
-            class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+        <button
+            class="md:hidden text-white p-2"
+            aria-label="Open navigation menu"
+            onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
 
             <span
-                class="iconify text-white"
-                data-icon="lucide:chevron-down"
+                class="iconify"
+                data-icon="lucide:menu"
                 data-width="24">
             </span>
 
-        </div>
+        </button>
 
-    </section>
-
-
-    <!-- =========================================================
-         ABOUT
-    ========================================================= -->
-
-    <section
-        id="about"
-        class="py-20 sm:py-24 px-5 sm:px-6 border-t border-white/5">
-
-        <div class="max-w-4xl mx-auto space-y-6">
-
-            <h2
-                class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
-                About
-            </h2>
+    </div>
 
 
-            <p
-                class="text-secondary leading-relaxed text-base sm:text-lg">
+    <!-- Mobile Navigation -->
 
-                I'm an ML Engineer with a strong background in software
-                engineering, DevOps, and big-data pipelines. In my previous
-                role as a Java Full-Stack Engineer at Walmart, I worked on
-                building and maintaining end-to-end production systems that
-                supported large-scale retail operations. My work spanned
-                backend development, automation, and data processing — from
-                designing Spring Boot services and batch jobs to orchestrating
-                CI/CD pipelines using Jenkins and GitHub Actions.
+    <div
+        id="mobile-menu"
+        class="hidden absolute top-16 left-0 w-full bg-surface border-b border-border p-6 flex flex-col gap-5 md:hidden">
 
-            </p>
+        <a href="#about"
+            onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            class="block hover:text-white">
+            About
+        </a>
 
+        <a href="#skills"
+            onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            class="block hover:text-white">
+            Skills
+        </a>
 
-            <p
-                class="text-secondary leading-relaxed text-base sm:text-lg">
+        <a href="#projects"
+            onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            class="block hover:text-white">
+            Projects
+        </a>
 
-                I collaborated closely with cross-functional teams to build
-                reliable workflows that moved data across the organization.
-                This included integrating Kafka for event streaming, using
-                Docker for containerized deployments, and working with GCP
-                Big Data services to process high-volume datasets. I regularly
-                used Postman for API testing and contributed to pipelines that
-                ensured smooth, automated delivery from development to production.
+        <a href="#experience"
+            onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            class="block hover:text-white">
+            Experience
+        </a>
 
-            </p>
+        <a href="#teaching"
+            onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            class="block hover:text-white">
+            Teaching
+        </a>
 
+        <a href="#contact"
+            onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+            class="block text-white font-semibold">
+            Contact
+        </a>
 
-            <p
-                class="text-secondary leading-relaxed text-base sm:text-lg">
+    </div>
 
-                Recently, I've been expanding my expertise into AI Engineering.
-                I'm actively building hands-on projects with Python, OpenCV,
-                YOLO, and real-time computer vision while strengthening my
-                understanding of machine learning, statistics, and deep-learning
-                workflows. My engineering background gives me a strong foundation
-                in structured problem solving, clean code, and production-ready
-                thinking — skills I now apply to AI development, GenAI, and MLOps.
-
-            </p>
-
-
-            <p
-                class="text-secondary leading-relaxed text-base sm:text-lg">
-
-                I'm excited to bring together my experience in backend systems,
-                automation, and big-data pipelines with my growing AI skill set
-                to build intelligent, scalable solutions in a professional environment.
-
-            </p>
-
-        </div>
-
-    </section>
+</nav>
 
 
-    <!-- =========================================================
-         SKILLS
-    ========================================================= -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-    <section
-        id="skills"
-        class="py-20 sm:py-24 px-5 sm:px-6 relative border-t border-white/5">
+<section
+    class="relative min-h-screen flex items-center pt-24 pb-16 px-5 sm:px-6 bg-grid">
 
-        <div class="max-w-6xl mx-auto space-y-12">
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] max-w-full h-[500px] glow-bg opacity-60 pointer-events-none">
+    </div>
 
-            <div class="space-y-2">
 
-                <h2
-                    class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
-                    Technical Toolkit
-                </h2>
+    <div
+        class="max-w-6xl mx-auto w-full relative z-10
+               grid grid-cols-1 md:grid-cols-[260px_1fr]
+               lg:grid-cols-[320px_1fr]
+               gap-10 lg:gap-16
+               items-center">
 
-                <p class="text-secondary">
-                    The tools I use to build and ship ML systems.
-                </p>
+
+        <!-- =====================================================
+             PHOTO — LEFT
+        ====================================================== -->
+
+        <div class="flex justify-center md:justify-start">
+
+            <div class="profile-image-wrapper">
+
+                <img
+                    src="./amritha.png"
+                    alt="Amritha Thirupathi Ponram"
+                    class="profile-image">
 
             </div>
 
+        </div>
+
+
+        <!-- =====================================================
+             HERO CONTENT — RIGHT
+        ====================================================== -->
+
+        <div
+            class="animate-slide-up space-y-7 text-center md:text-left">
+
+
+            <!-- Availability -->
 
             <div
-                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-
-                <!-- Machine Learning -->
-
-                <div
-                    class="group p-6 sm:p-8 rounded-2xl bg-surface/50 border border-border card-hover relative overflow-hidden">
-
-                    <div
-                        class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-
-                        <span
-                            class="iconify"
-                            data-icon="lucide:brain-circuit"
-                            data-width="80">
-                        </span>
-
-                    </div>
-
-
-                    <div class="flex items-center gap-3 mb-6">
-
-                        <span
-                            class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-
-                            <span
-                                class="iconify"
-                                data-icon="lucide:brain"
-                                data-width="20">
-                            </span>
-
-                        </span>
-
-                        <h3 class="text-xl font-medium text-white">
-                            Machine Learning
-                        </h3>
-
-                    </div>
-
-
-                    <ul class="space-y-3">
-
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                            Regression, Classification, SVM
-                        </li>
-
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                            Random Forest, XGBoost, LightGBM
-                        </li>
-
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                            Cross-validation, hyperparameter tuning
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- Computer Vision -->
-
-                <div
-                    class="group p-6 sm:p-8 rounded-2xl bg-surface/50 border border-border card-hover relative overflow-hidden">
-
-                    <div
-                        class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-
-                        <span
-                            class="iconify"
-                            data-icon="lucide:scan-eye"
-                            data-width="80">
-                        </span>
-
-                    </div>
-
-
-                    <div class="flex items-center gap-3 mb-6">
-
-                        <span
-                            class="p-2 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">
-
-                            <span
-                                class="iconify"
-                                data-icon="lucide:camera"
-                                data-width="20">
-                            </span>
-
-                        </span>
-
-                        <h3 class="text-xl font-medium text-white">
-                            Computer Vision
-                        </h3>
-
-                    </div>
-
-
-                    <ul class="space-y-3">
-
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
-                            YOLO, OpenCV
-                        </li>
-
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
-                            TensorFlow, PyTorch
-                        </li>
-
-                        <li class="flex items-center gap-2 text-sm">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
-                            Image preprocessing, object detection
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- Deployment -->
-
-                <div
-                    class="group p-6 sm:p-8 rounded-2xl bg-surface/50 border border-border card-hover relative overflow-hidden">
-
-                    <div
-                        class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-
-                        <span
-                            class="iconify"
-                            data-icon="lucide:layout-template"
-                            data-width="80">
-                        </span>
-
-                    </div>
-
-
-                    <div class="flex items-center gap-3 mb-6">
-
-                        <span
-                            class="p-2 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20">
-
-                            <span
-                                class="iconify"
-                                data-icon="lucide:code-2"
-                                data-width="20">
-                            </span>
-
-                        </span>
-
-                        <h3 class="text-xl font-medium text-white">
-                            Deployment & APIs
-                        </h3>
-
-                    </div>
-
-
-                    <div class="flex flex-wrap gap-2">
-
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">Render</span>
-                        <span class="skill-tag">Spring Batch</span>
-                        <span class="skill-tag">Git / CI-CD</span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Data -->
-
-                <div
-                    class="group p-6 sm:p-8 rounded-2xl bg-surface/50 border border-border card-hover relative overflow-hidden lg:col-span-2">
-
-                    <div class="flex flex-col md:flex-row gap-8">
-
-                        <div class="flex-1">
-
-                            <div class="flex items-center gap-3 mb-6">
-
-                                <span
-                                    class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-
-                                    <span
-                                        class="iconify"
-                                        data-icon="lucide:database"
-                                        data-width="20">
-                                    </span>
-
-                                </span>
-
-                                <h3 class="text-xl font-medium text-white">
-                                    Data & Analysis
-                                </h3>
-
-                            </div>
-
-
-                            <p class="text-sm leading-relaxed mb-4">
-
-                                Comfortable across the full data pipeline —
-                                cleaning and feature engineering in Pandas/NumPy,
-                                business-question SQL, and dashboarding in Power BI,
-                                alongside large-scale batch processing in production.
-
-                            </p>
-
-
-                            <div class="flex flex-wrap gap-2">
-
-                                <span class="skill-tag">
-                                    Pandas / NumPy
-                                </span>
-
-                                <span class="skill-tag">
-                                    SQL
-                                </span>
-
-                                <span class="skill-tag">
-                                    Power BI
-                                </span>
-
-                                <span class="skill-tag">
-                                    BigQuery
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div
-                            class="flex-1 border-l-0 md:border-l border-white/5 pl-0 md:pl-8">
-
-                            <div class="flex items-center gap-3 mb-6">
-
-                                <span
-                                    class="p-2 rounded-lg bg-orange-500/10 text-orange-400 border border-orange-500/20">
-
-                                    <span
-                                        class="iconify"
-                                        data-icon="lucide:message-square-text"
-                                        data-width="20">
-                                    </span>
-
-                                </span>
-
-                                <h3 class="text-xl font-medium text-white">
-                                    NLP
-                                </h3>
-
-                            </div>
-
-
-                            <div class="grid grid-cols-1 gap-3 text-sm">
-
-                                <div class="flex items-center gap-2">
-                                    <span class="iconify" data-icon="lucide:type"></span>
-                                    Text preprocessing & tokenization
-                                </div>
-
-                                <div class="flex items-center gap-2">
-                                    <span class="iconify" data-icon="lucide:hash"></span>
-                                    TF-IDF / CountVectorizer
-                                </div>
-
-                                <div class="flex items-center gap-2">
-                                    <span class="iconify" data-icon="lucide:git-branch"></span>
-                                    Sentiment & spam classification
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         EXPERIENCE
-    ========================================================= -->
-
-    <section
-        id="experience"
-        class="py-20 sm:py-24 px-5 sm:px-6 bg-surface/30">
-
-        <div class="max-w-4xl mx-auto space-y-12">
-
-            <h2
-                class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
-                Experience
-            </h2>
-
-
-            <div
-                class="relative border-l border-white/10 ml-3 space-y-12">
-
-
-                <!-- ProITBridge -->
-
-                <div class="relative pl-8 sm:pl-10 group">
-
-                    <div
-                        class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-white ring-4 ring-background group-hover:bg-indigo-400 transition-colors">
-                    </div>
-
-
-                    <div
-                        class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-
-                        <h3 class="text-xl font-medium text-white">
-                            Machine Learning Engineer
-                        </h3>
-
-                        <span class="text-sm font-mono text-secondary">
-                            Apr 2026 – Present
-                        </span>
-
-                    </div>
-
-
-                    <div class="text-lg text-white mb-2">
-                        ProITBridge
-                    </div>
-
-
-                    <p
-                        class="text-sm text-secondary leading-relaxed max-w-2xl mb-3">
-
-                        Owning the full ML lifecycle across computer vision,
-                        NLP, and predictive-modeling projects — from problem
-                        framing through deployment.
-
-                    </p>
-
-
-                    <ul class="space-y-2 text-sm text-secondary">
-
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-1">›</span>
-                            Built a YOLO-based weld-defect detection model reaching
-                            94% precision on held-out test data.
-                        </li>
-
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-1">›</span>
-                            Reduced false negatives by 30% on a clinical-risk
-                            prediction task via class-imbalance correction.
-                        </li>
-
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-1">›</span>
-                            Mentored a junior engineer on ML fundamentals and
-                            project workflow.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- Career Break -->
-
-                <div class="relative pl-8 sm:pl-10 group">
-
-                    <div
-                        class="absolute -left-[7px] top-1 h-4 w-4 rounded-full bg-indigo-500/20 border border-indigo-400 ring-4 ring-background flex items-center justify-center">
-
-                        <div class="h-1.5 w-1.5 rounded-full bg-indigo-400"></div>
-
-                    </div>
-
-
-                    <div
-                        class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-
-                        <h3 class="text-xl font-medium text-white">
-                            Career Break & AI Upskilling
-                        </h3>
-
-                        <span class="text-sm font-mono text-secondary">
-                            Jan 2023 – Mar 2026
-                        </span>
-
-                    </div>
-
-
-                    <div class="text-lg text-indigo-300 mb-3">
-                        Personal Milestones · Professional Development
-                    </div>
-
-
-                    <p
-                        class="text-sm text-secondary leading-relaxed max-w-2xl mb-4">
-
-                        After my role at Walmart, I took a career break to focus
-                        on personal milestones, including marriage and starting
-                        a family. I used the period intentionally to strengthen
-                        my AI and machine learning skills through coursework and
-                        hands-on projects in computer vision, NLP, and predictive
-                        modeling.
-
-                    </p>
-
-
-                    <ul class="space-y-2 text-sm text-secondary">
-
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-1">›</span>
-                            Built hands-on ML projects spanning YOLO-based computer
-                            vision, NLP classification, and predictive modeling.
-                        </li>
-
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-1">›</span>
-                            Strengthened Python, scikit-learn, OpenCV, PyTorch,
-                            model evaluation, and deployment skills.
-                        </li>
-
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-1">›</span>
-                            Developed portfolio projects to demonstrate practical,
-                            end-to-end AI engineering capabilities.
-                        </li>
-
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-1">›</span>
-                            Returned to the workforce in April 2026 and transitioned
-                            directly into applied ML engineering at ProITBridge.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- Walmart -->
-
-                <div class="relative pl-8 sm:pl-10 group">
-
-                    <div
-                        class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-neutral-600 ring-4 ring-background group-hover:bg-indigo-400 transition-colors">
-                    </div>
-
-
-                    <div
-                        class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-
-                        <h3 class="text-xl font-medium text-white">
-                            Data Engineer
-                        </h3>
-
-                        <span class="text-sm font-mono text-secondary">
-                            Jan 2021 – Dec 2022
-                        </span>
-
-                    </div>
-
-
-                    <div class="text-lg text-white mb-2">
-                        Walmart (via Cognizant Technology Solutions)
-                    </div>
-
-
-                    <p
-                        class="text-sm text-secondary leading-relaxed max-w-2xl mb-3">
-
-                        Built and maintained Java/Spring Boot/Spring Batch pipelines
-                        calculating daily inventory adjustments across 8,931 stores
-                        and departments.
-
-                    </p>
-
-
-                    <ul class="space-y-2 text-sm text-secondary">
-
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-1">›</span>
-                            Cut manual correction effort by 55% with an automated
-                            inventory-accuracy fix.
-                        </li>
-
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-1">›</span>
-                            Led a Spring Boot version upgrade with zero production downtime.
-                        </li>
-
-                        <li class="flex gap-2">
-                            <span class="text-indigo-400 mt-1">›</span>
-                            Mentored a junior engineer on data pipeline development
-                            and debugging.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         TEACHING
-    ========================================================= -->
-
-    <section
-        id="teaching"
-        class="py-20 sm:py-24 px-5 sm:px-6 border-t border-white/5">
-
-        <div class="max-w-4xl mx-auto space-y-10">
-
-            <div class="space-y-2">
-
-                <h2
-                    class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
-
-                    Teaching & Mentoring
-
-                </h2>
-
-                <p class="text-secondary">
-                    Breaking complex ideas down until they click for someone else.
-                </p>
-
-            </div>
-
-
-            <div
-                class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-
-
-                <div
-                    class="p-6 rounded-2xl bg-surface/50 border border-border card-hover">
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full
+                       border border-white/10 bg-white/5
+                       text-xs font-medium text-white
+                       backdrop-blur-sm">
+
+                <span class="relative flex h-2 w-2">
 
                     <span
-                        class="iconify text-indigo-400 mb-3"
-                        data-icon="lucide:users"
-                        data-width="24">
+                        class="animate-ping absolute inline-flex h-full w-full
+                               rounded-full bg-green-400 opacity-75">
                     </span>
-
-                    <h3 class="text-white font-medium mb-2">
-                        ProITBridge
-                    </h3>
-
-                    <p class="text-sm text-secondary">
-
-                        Mentored a junior engineer on ML fundamentals and project
-                        workflow — pairing on code reviews and model-building decisions.
-
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="p-6 rounded-2xl bg-surface/50 border border-border card-hover">
 
                     <span
-                        class="iconify text-indigo-400 mb-3"
-                        data-icon="lucide:users"
-                        data-width="24">
+                        class="relative inline-flex rounded-full h-2 w-2
+                               bg-green-500">
                     </span>
 
-                    <h3 class="text-white font-medium mb-2">
-                        Walmart (via Cognizant)
-                    </h3>
+                </span>
 
-                    <p class="text-sm text-secondary">
-
-                        Mentored a junior engineer on data pipeline development
-                        and debugging, helping them ramp up on the team's codebase.
-
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="p-6 rounded-2xl bg-surface/50 border border-border card-hover">
-
-                    <span
-                        class="iconify text-indigo-400 mb-3"
-                        data-icon="lucide:graduation-cap"
-                        data-width="24">
-                    </span>
-
-                    <h3 class="text-white font-medium mb-2">
-                        College Seminar
-                    </h3>
-
-                    <p class="text-sm text-secondary">
-
-                        Led informal peer-teaching sessions, breaking down technical
-                        topics for classmates in plain, accessible language.
-
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="p-6 rounded-2xl bg-surface/50 border border-border card-hover">
-
-                    <span
-                        class="iconify text-indigo-400 mb-3"
-                        data-icon="lucide:message-circle"
-                        data-width="24">
-                    </span>
-
-                    <h3 class="text-white font-medium mb-2">
-                        Ongoing
-                    </h3>
-
-                    <p class="text-sm text-secondary">
-
-                        Regularly translates technical model behavior for
-                        cross-functional, non-technical stakeholders.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         PROJECTS
-    ========================================================= -->
-
-    <section
-        id="projects"
-        class="py-20 sm:py-24 px-5 sm:px-6 relative">
-
-        <div class="max-w-6xl mx-auto space-y-12">
-
-            <div class="space-y-2">
-
-                <h2
-                    class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
-
-                    Featured Projects
-
-                </h2>
-
-                <p class="text-secondary">
-                    End-to-end ML systems, from data to deployed demo.
-                </p>
+                Open to opportunities in ML engineering & AI education
 
             </div>
 
 
-            <div
-                class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- NAME + HEADLINE -->
 
+            <h1
+                class="hero-name text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl
+                       font-semibold tracking-tighter
+                       text-white leading-[1.08]">
 
-                <!-- =====================================================
-                     WELD
-                ====================================================== -->
+                
 
-                <article
-                    class="group relative rounded-xl bg-surface border border-border overflow-hidden hover:border-neutral-600 transition-colors">
+                <span class="block text-white mt-2">
+                   Hi, I'm Amritha Ponram
+                </span>
 
-                    <div
-                        class="aspect-video bg-neutral-900 relative overflow-hidden">
+                <span
+                    class="block text-neutral-500 mt-4">
+                    I build ML systems and teach how they work.
+                </span>
 
-                        <div class="project-visual">
+            </h1>
 
-                            <svg
-                                viewBox="0 0 800 450"
-                                xmlns="http://www.w3.org/2000/svg">
 
-                                <defs>
-
-                                    <linearGradient
-                                        id="weldBg"
-                                        x1="0"
-                                        y1="0"
-                                        x2="1"
-                                        y2="1">
-
-                                        <stop offset="0%" stop-color="#111827" />
-                                        <stop offset="50%" stop-color="#1e1b4b" />
-                                        <stop offset="100%" stop-color="#09090b" />
-
-                                    </linearGradient>
-
-                                    <linearGradient
-                                        id="metal"
-                                        x1="0"
-                                        y1="0"
-                                        x2="1"
-                                        y2="0">
-
-                                        <stop offset="0%" stop-color="#374151" />
-                                        <stop offset="50%" stop-color="#9ca3af" />
-                                        <stop offset="100%" stop-color="#374151" />
-
-                                    </linearGradient>
-
-                                </defs>
-
-
-                                <rect
-                                    width="800"
-                                    height="450"
-                                    fill="url(#weldBg)" />
-
-
-                                <g
-                                    opacity="0.12"
-                                    stroke="#ffffff">
-
-                                    <line x1="0" y1="75" x2="800" y2="75" />
-                                    <line x1="0" y1="150" x2="800" y2="150" />
-                                    <line x1="0" y1="225" x2="800" y2="225" />
-                                    <line x1="0" y1="300" x2="800" y2="300" />
-                                    <line x1="0" y1="375" x2="800" y2="375" />
-
-                                    <line x1="100" y1="0" x2="100" y2="450" />
-                                    <line x1="200" y1="0" x2="200" y2="450" />
-                                    <line x1="300" y1="0" x2="300" y2="450" />
-                                    <line x1="400" y1="0" x2="400" y2="450" />
-                                    <line x1="500" y1="0" x2="500" y2="450" />
-                                    <line x1="600" y1="0" x2="600" y2="450" />
-                                    <line x1="700" y1="0" x2="700" y2="450" />
-
-                                </g>
-
-
-                                <rect
-                                    x="130"
-                                    y="130"
-                                    width="540"
-                                    height="190"
-                                    rx="10"
-                                    fill="url(#metal)"
-                                    opacity="0.45" />
-
-
-                                <path
-                                    d="M180 260 L620 260"
-                                    stroke="#d1d5db"
-                                    stroke-width="18"
-                                    stroke-linecap="round"
-                                    opacity="0.8" />
-
-
-                                <path
-                                    d="M180 260
-                                       C230 245 260 275 310 258
-                                       C360 240 400 275 450 258
-                                       C500 240 550 275 620 255"
-                                    fill="none"
-                                    stroke="#818cf8"
-                                    stroke-width="7"
-                                    opacity="0.8" />
-
-
-                                <g class="weld-defect">
-
-                                    <rect
-                                        x="260"
-                                        y="215"
-                                        width="85"
-                                        height="75"
-                                        rx="4"
-                                        fill="none"
-                                        stroke="#818cf8"
-                                        stroke-width="3" />
-
-                                    <rect
-                                        x="470"
-                                        y="210"
-                                        width="90"
-                                        height="80"
-                                        rx="4"
-                                        fill="none"
-                                        stroke="#a78bfa"
-                                        stroke-width="3" />
-
-                                </g>
-
-
-                                <g
-                                    font-family="monospace"
-                                    font-size="16">
-
-                                    <rect
-                                        x="260"
-                                        y="185"
-                                        width="85"
-                                        height="25"
-                                        rx="4"
-                                        fill="#6366f1"
-                                        opacity="0.9" />
-
-                                    <text
-                                        x="270"
-                                        y="202"
-                                        fill="white">
-                                        CRACK
-                                    </text>
-
-
-                                    <rect
-                                        x="470"
-                                        y="180"
-                                        width="90"
-                                        height="25"
-                                        rx="4"
-                                        fill="#7c3aed"
-                                        opacity="0.9" />
-
-                                    <text
-                                        x="480"
-                                        y="197"
-                                        fill="white">
-                                        POROSITY
-                                    </text>
-
-                                </g>
-
-
-                                <rect
-                                    class="weld-beam"
-                                    x="0"
-                                    y="95"
-                                    width="8"
-                                    height="260"
-                                    fill="#818cf8"
-                                    opacity="0.9" />
-
-
-                                <circle
-                                    class="weld-pulse"
-                                    cx="690"
-                                    cy="70"
-                                    r="10"
-                                    fill="#6366f1" />
-
-                                <text
-                                    x="715"
-                                    y="76"
-                                    fill="#d1d5db"
-                                    font-family="monospace"
-                                    font-size="14">
-                                    YOLO DETECTION
-                                </text>
-
-
-                                <text
-                                    x="30"
-                                    y="420"
-                                    fill="#9ca3af"
-                                    font-family="monospace"
-                                    font-size="14">
-                                    WELD INSPECTION // OBJECT DETECTION
-                                </text>
-
-                            </svg>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="p-6 space-y-4">
-
-                        <div class="flex justify-between items-start gap-4">
-
-                            <div>
-
-                                <h3
-                                    class="text-lg font-semibold text-white mb-1 group-hover:text-indigo-300 transition-colors">
-
-                                    Weld Defect Detection
-
-                                </h3>
-
-                                <p class="text-xs text-secondary">
-                                    Industrial QA · Computer Vision
-                                </p>
-
-                            </div>
-
-
-                            <div class="flex gap-1 flex-shrink-0">
-
-                                <a
-                                    href="https://github.com/Amritha-TP/weld-quality-inspection-yolo"
-                                    target="_blank"
-                                    rel="noopener"
-                                    class="p-2 rounded-full hover:bg-white/10 text-white"
-                                    aria-label="Code">
-
-                                    <span
-                                        class="iconify"
-                                        data-icon="lucide:github"
-                                        data-width="18">
-                                    </span>
-
-                                </a>
-
-
-                                <a
-                                    href="https://weld-quality-inspection-yolo.onrender.com/"
-                                    target="_blank"
-                                    rel="noopener"
-                                    class="p-2 rounded-full hover:bg-white/10 text-white"
-                                    aria-label="Live demo">
-
-                                    <span
-                                        class="iconify"
-                                        data-icon="lucide:arrow-up-right"
-                                        data-width="18">
-                                    </span>
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                        <p class="text-sm text-secondary">
-
-                            End-to-end YOLOv8 object detection pipeline identifying
-                            and localizing weld defects — cracks, porosity, undercut —
-                            reaching 94% precision on held-out test data.
-
-                        </p>
-
-
-                        <div class="flex gap-2 pt-2 flex-wrap">
-
-                            <span class="project-tag">YOLOv8</span>
-                            <span class="project-tag">OpenCV</span>
-                            <span class="project-tag">Flask</span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =====================================================
-                     SENTIMENT
-                ====================================================== -->
-
-                <article
-                    class="group relative rounded-xl bg-surface border border-border overflow-hidden hover:border-neutral-600 transition-colors">
-
-                    <div
-                        class="aspect-video bg-neutral-900 relative overflow-hidden">
-
-                        <div class="project-visual">
-
-                            <svg
-                                viewBox="0 0 800 450"
-                                xmlns="http://www.w3.org/2000/svg">
-
-                                <defs>
-
-                                    <linearGradient
-                                        id="sentimentBg"
-                                        x1="0"
-                                        y1="0"
-                                        x2="1"
-                                        y2="1">
-
-                                        <stop offset="0%" stop-color="#1e1033" />
-                                        <stop offset="50%" stop-color="#25113f" />
-                                        <stop offset="100%" stop-color="#09090b" />
-
-                                    </linearGradient>
-
-                                    <linearGradient
-                                        id="barGradient"
-                                        x1="0"
-                                        y1="1"
-                                        x2="0"
-                                        y2="0">
-
-                                        <stop offset="0%" stop-color="#7c3aed" />
-                                        <stop offset="100%" stop-color="#c084fc" />
-
-                                    </linearGradient>
-
-                                </defs>
-
-
-                                <rect
-                                    width="800"
-                                    height="450"
-                                    fill="url(#sentimentBg)" />
-
-
-                                <g
-                                    opacity="0.12"
-                                    stroke="#ffffff">
-
-                                    <line x1="80" y1="100" x2="720" y2="100" />
-                                    <line x1="80" y1="170" x2="720" y2="170" />
-                                    <line x1="80" y1="240" x2="720" y2="240" />
-                                    <line x1="80" y1="310" x2="720" y2="310" />
-
-                                    <line x1="180" y1="70" x2="180" y2="350" />
-                                    <line x1="280" y1="70" x2="280" y2="350" />
-                                    <line x1="380" y1="70" x2="380" y2="350" />
-                                    <line x1="480" y1="70" x2="480" y2="350" />
-                                    <line x1="580" y1="70" x2="580" y2="350" />
-                                    <line x1="680" y1="70" x2="680" y2="350" />
-
-                                </g>
-
-
-                                <text
-                                    x="80"
-                                    y="55"
-                                    fill="#e9d5ff"
-                                    font-family="monospace"
-                                    font-size="18">
-                                    SENTIMENT ANALYSIS
-                                </text>
-
-
-                                <text
-                                    x="620"
-                                    y="55"
-                                    fill="#a78bfa"
-                                    font-family="monospace"
-                                    font-size="13">
-                                    LIVE NLP
-                                </text>
-
-
-                                <rect
-                                    class="sentiment-bar"
-                                    x="145"
-                                    y="175"
-                                    width="70"
-                                    height="140"
-                                    rx="6"
-                                    fill="url(#barGradient)" />
-
-
-                                <rect
-                                    class="sentiment-bar"
-                                    x="265"
-                                    y="135"
-                                    width="70"
-                                    height="180"
-                                    rx="6"
-                                    fill="url(#barGradient)"
-                                    style="animation-delay:.4s;" />
-
-
-                                <rect
-                                    class="sentiment-bar"
-                                    x="385"
-                                    y="210"
-                                    width="70"
-                                    height="105"
-                                    rx="6"
-                                    fill="url(#barGradient)"
-                                    style="animation-delay:.8s;" />
-
-
-                                <rect
-                                    class="sentiment-bar"
-                                    x="505"
-                                    y="155"
-                                    width="70"
-                                    height="160"
-                                    rx="6"
-                                    fill="url(#barGradient)"
-                                    style="animation-delay:1.2s;" />
-
-
-                                <g
-                                    fill="#a1a1aa"
-                                    font-family="monospace"
-                                    font-size="13"
-                                    text-anchor="middle">
-
-                                    <text x="180" y="340">
-                                        POSITIVE
-                                    </text>
-
-                                    <text x="300" y="340">
-                                        NEUTRAL
-                                    </text>
-
-                                    <text x="420" y="340">
-                                        NEGATIVE
-                                    </text>
-
-                                    <text x="540" y="340">
-                                        ALERT
-                                    </text>
-
-                                </g>
-
-
-                                <g
-                                    fill="#e9d5ff"
-                                    font-family="monospace"
-                                    font-size="14"
-                                    text-anchor="middle">
-
-                                    <text x="180" y="165">
-                                        0.78
-                                    </text>
-
-                                    <text x="300" y="125">
-                                        0.91
-                                    </text>
-
-                                    <text x="420" y="200">
-                                        0.54
-                                    </text>
-
-                                    <text x="540" y="145">
-                                        0.82
-                                    </text>
-
-                                </g>
-
-
-                                <g class="sentiment-pulse">
-
-                                    <rect
-                                        x="585"
-                                        y="365"
-                                        width="145"
-                                        height="38"
-                                        rx="8"
-                                        fill="#581c87"
-                                        opacity="0.8" />
-
-                                    <circle
-                                        cx="605"
-                                        cy="384"
-                                        r="6"
-                                        fill="#c084fc" />
-
-                                    <text
-                                        x="620"
-                                        y="389"
-                                        fill="#f3e8ff"
-                                        font-family="monospace"
-                                        font-size="12">
-                                        TELEGRAM ALERT
-                                    </text>
-
-                                </g>
-
-
-                                <circle
-                                    class="sentiment-dot"
-                                    cx="100"
-                                    cy="380"
-                                    r="5"
-                                    fill="#c084fc" />
-
-                                <circle
-                                    class="sentiment-dot"
-                                    cx="120"
-                                    cy="380"
-                                    r="5"
-                                    fill="#a78bfa"
-                                    style="animation-delay:.3s;" />
-
-                                <circle
-                                    class="sentiment-dot"
-                                    cx="140"
-                                    cy="380"
-                                    r="5"
-                                    fill="#8b5cf6"
-                                    style="animation-delay:.6s;" />
-
-
-                                <text
-                                    x="80"
-                                    y="410"
-                                    fill="#71717a"
-                                    font-family="monospace"
-                                    font-size="13">
-
-                                    TF-IDF → CLASSIFIER → ALERT
-
-                                </text>
-
-                            </svg>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="p-6 space-y-4">
-
-                        <div class="flex justify-between items-start gap-4">
-
-                            <div>
-
-                                <h3
-                                    class="text-lg font-semibold text-white mb-1 group-hover:text-purple-300 transition-colors">
-
-                                    Customer Feedback Sentiment Analysis
-
-                                </h3>
-
-                                <p class="text-xs text-secondary">
-                                    NLP · Alerting System
-                                </p>
-
-                            </div>
-
-
-                            <div class="flex gap-1 flex-shrink-0">
-
-                                <a
-                                    href="https://github.com/Amritha-TP/customer-feedback-analysis-alert"
-                                    target="_blank"
-                                    rel="noopener"
-                                    class="p-2 rounded-full hover:bg-white/10 text-white"
-                                    aria-label="Code">
-
-                                    <span
-                                        class="iconify"
-                                        data-icon="lucide:github"
-                                        data-width="18">
-                                    </span>
-
-                                </a>
-
-
-                                <a
-                                    href="https://customer-feedback-analysis-alert.onrender.com/"
-                                    target="_blank"
-                                    rel="noopener"
-                                    class="p-2 rounded-full hover:bg-white/10 text-white"
-                                    aria-label="Live demo">
-
-                                    <span
-                                        class="iconify"
-                                        data-icon="lucide:arrow-up-right"
-                                        data-width="18">
-                                    </span>
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                        <p class="text-sm text-secondary">
-
-                            Modular NLP pipeline for sentiment classification,
-                            deployed via FastAPI with real-time predictions and
-                            Telegram alerts for negative feedback.
-
-                        </p>
-
-
-                        <div class="flex gap-2 pt-2 flex-wrap">
-
-                            <span class="project-tag">TF-IDF</span>
-                            <span class="project-tag">FastAPI</span>
-                            <span class="project-tag">Telegram API</span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =====================================================
-                     SPAM
-                ====================================================== -->
-
-                <article
-                    class="group relative rounded-xl bg-surface border border-border overflow-hidden hover:border-neutral-600 transition-colors">
-
-                    <div
-                        class="aspect-video bg-neutral-900 relative overflow-hidden">
-
-                        <div
-                            class="absolute inset-0 bg-gradient-to-tr from-red-900/20 to-neutral-900 group-hover:scale-105 transition-transform duration-500">
-                        </div>
-
-                        <div
-                            class="absolute inset-0 flex items-center justify-center">
-
-                            <span
-                                class="iconify text-red-500/30"
-                                data-icon="lucide:shield-alert"
-                                data-width="64">
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="p-6 space-y-4">
-
-                        <div class="flex justify-between items-start gap-4">
-
-                            <div>
-
-                                <h3
-                                    class="text-lg font-semibold text-white mb-1 group-hover:text-red-300 transition-colors">
-
-                                    Email Spam Detection
-
-                                </h3>
-
-                                <p class="text-xs text-secondary">
-                                    NLP · Classification
-                                </p>
-
-                            </div>
-
-
-                            <a
-                                href="https://github.com/Amritha-TP/SmartMail-NLP-Spam-Classification-System"
-                                target="_blank"
-                                rel="noopener"
-                                class="p-2 rounded-full hover:bg-white/10 text-white"
-                                aria-label="Code">
-
-                                <span
-                                    class="iconify"
-                                    data-icon="lucide:github"
-                                    data-width="18">
-                                </span>
-
-                            </a>
-
-                        </div>
-
-
-                        <p class="text-sm text-secondary">
-
-                            End-to-end spam/ham classifier — text preprocessing,
-                            CountVectorizer features, and a FastAPI serving layer,
-                            with a pipeline structured to prevent data leakage.
-
-                        </p>
-
-
-                        <div class="flex gap-2 pt-2 flex-wrap">
-
-                            <span class="project-tag">Scikit-learn</span>
-                            <span class="project-tag">FastAPI</span>
-                            <span class="project-tag">Joblib</span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =====================================================
-                     CUSTOMER SHOPPING
-                ====================================================== -->
-
-                <article
-                    class="group relative rounded-xl bg-surface border border-border overflow-hidden hover:border-neutral-600 transition-colors">
-
-                    <div
-                        class="aspect-video bg-neutral-900 relative overflow-hidden">
-
-                        <div
-                            class="absolute inset-0 bg-gradient-to-tr from-emerald-900/20 to-neutral-900 group-hover:scale-105 transition-transform duration-500">
-                        </div>
-
-                        <div
-                            class="absolute inset-0 flex items-center justify-center">
-
-                            <span
-                                class="iconify text-emerald-500/30"
-                                data-icon="lucide:bar-chart-3"
-                                data-width="64">
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="p-6 space-y-4">
-
-                        <div class="flex justify-between items-start gap-4">
-
-                            <div>
-
-                                <h3
-                                    class="text-lg font-semibold text-white mb-1 group-hover:text-emerald-300 transition-colors">
-
-                                    Customer Shopping Behavior Analysis
-
-                                </h3>
-
-                                <p class="text-xs text-secondary">
-                                    Retail Analytics · Dashboarding
-                                </p>
-
-                            </div>
-
-
-                            <a
-                                href="https://github.com/Amritha-TP/customer-shopping-behavior-analysis"
-                                target="_blank"
-                                rel="noopener"
-                                class="p-2 rounded-full hover:bg-white/10 text-white"
-                                aria-label="Code">
-
-                                <span
-                                    class="iconify"
-                                    data-icon="lucide:github"
-                                    data-width="18">
-                                </span>
-
-                            </a>
-
-                        </div>
-
-
-                        <p class="text-sm text-secondary">
-
-                            End-to-end analysis of 3,900 retail customers —
-                            Python cleaning and feature engineering, 10 SQL
-                            business-question queries, and a Power BI dashboard.
-
-                        </p>
-
-
-                        <div class="flex gap-2 pt-2 flex-wrap">
-
-                            <span class="project-tag">Pandas</span>
-                            <span class="project-tag">SQL</span>
-                            <span class="project-tag">Power BI</span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =====================================================
-                     DIABETES
-                ====================================================== -->
-
-                <article
-                    class="group relative rounded-xl bg-surface border border-border overflow-hidden hover:border-neutral-600 transition-colors md:col-span-2">
-
-                    <div class="p-6 space-y-4">
-
-                        <div
-                            class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
-
-                            <div>
-
-                                <h3
-                                    class="text-lg font-semibold text-white mb-1">
-
-                                    Predictive Modeling Portfolio —
-                                    Diabetes Risk Prediction
-
-                                </h3>
-
-                                <p class="text-xs text-secondary">
-                                    Healthcare · Predictive Modeling
-                                </p>
-
-                            </div>
-
-
-                            <span
-                                class="text-xs text-secondary italic px-3 py-1">
-
-                                Code walkthrough available on request
-
-                            </span>
-
-                        </div>
-
-
-                        <p class="text-sm text-secondary max-w-3xl">
-
-                            Benchmarked Logistic Regression, Random Forest,
-                            XGBoost, and LightGBM on a diabetic patient dataset.
-                            Reduced false negatives by 30% versus baseline through
-                            feature engineering and class-imbalance correction —
-                            evaluated with precision, recall, F1, and ROC-AUC rather
-                            than accuracy alone, to match real clinical priorities.
-
-                        </p>
-
-
-                        <div class="flex gap-2 pt-2 flex-wrap">
-
-                            <span class="project-tag">XGBoost</span>
-                            <span class="project-tag">LightGBM</span>
-                            <span class="project-tag">Scikit-learn</span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         CONTACT
-    ========================================================= -->
-
-    <section
-        id="contact"
-        class="py-20 sm:py-24 px-5 sm:px-6 border-t border-white/5 bg-gradient-to-b from-background to-surface/20">
-
-        <div class="max-w-3xl mx-auto text-center space-y-8">
-
-            <h2
-                class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
-
-                Let's build something intelligent.
-
-            </h2>
-
+            <!-- Description -->
 
             <p
-                class="text-secondary text-base sm:text-lg leading-relaxed">
+                class="text-base sm:text-lg md:text-lg lg:text-xl
+                       text-secondary
+                       max-w-2xl
+                       leading-relaxed
+                       mx-auto md:mx-0">
 
-                I'm currently exploring opportunities in machine learning
-                engineering and AI education. If you'd like to talk, I'll
-                get back to you as soon as I can.
+                Machine Learning Engineer building computer vision, NLP,
+                and predictive-modeling systems end to end — from data to
+                deployment — with a growing focus on mentoring and
+                technical education.
 
             </p>
 
 
+            <!-- Buttons -->
+
             <div
-                class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+                class="flex flex-col sm:flex-row
+                       gap-4
+                       justify-center md:justify-start
+                       items-center
+                       pt-2">
+
+                <a
+                    href="#projects"
+                    class="w-full sm:w-auto
+                           px-8 py-3
+                           bg-white text-black
+                           font-medium rounded-full
+                           hover:bg-neutral-200
+                           transition-all
+                           flex items-center justify-center gap-2">
+
+                    View Projects
+
+                    <span
+                        class="iconify"
+                        data-icon="lucide:arrow-right"
+                        data-width="18">
+                    </span>
+
+                </a>
+
 
                 <a
                     href="mailto:amritha.tponram@gmail.com"
-                    class="group flex items-center justify-center gap-3
-                           px-6 py-3
-                           bg-white text-black
-                           rounded-lg font-medium
-                           hover:scale-105 transition-transform">
-
-                    <span
-                        class="iconify"
-                        data-icon="lucide:mail">
-                    </span>
-
-                    <span>
-                        amritha.tponram@gmail.com
-                    </span>
-
-                </a>
-
-
-                <a
-                    href="tel:+12176193209"
-                    class="group flex items-center justify-center gap-3
-                           px-6 py-3
+                    class="w-full sm:w-auto
+                           px-8 py-3
                            border border-border
-                           rounded-lg font-medium
-                           hover:bg-white/5 transition-colors">
+                           text-white
+                           font-medium rounded-full
+                           hover:bg-white/5
+                           transition-all
+                           flex items-center justify-center gap-2">
 
                     <span
                         class="iconify"
-                        data-icon="lucide:phone">
+                        data-icon="lucide:mail"
+                        data-width="18">
                     </span>
 
-                    <span>
-                        +1 (217) 619-3209
-                    </span>
+                    Get in Touch
 
                 </a>
 
             </div>
 
 
+            <!-- Social Links -->
+
             <div
-                class="flex justify-center items-center gap-8 pt-10 opacity-70">
+                class="flex gap-4 justify-center md:justify-start">
 
                 <a
                     href="https://github.com/Amritha-TP"
                     target="_blank"
-                    rel="noopener"
-                    class="hover:text-white hover:opacity-100 transition-all flex flex-col items-center gap-2">
+                    rel="noopener noreferrer"
+                    class="p-3 text-secondary hover:text-white transition-colors"
+                    aria-label="GitHub">
 
                     <span
                         class="iconify"
                         data-icon="lucide:github"
-                        data-width="24">
-                    </span>
-
-                    <span class="text-xs">
-                        GitHub
+                        data-width="22">
                     </span>
 
                 </a>
@@ -2462,17 +642,14 @@
                 <a
                     href="https://www.linkedin.com/in/amritha-t-p-ab735a1a6/"
                     target="_blank"
-                    rel="noopener"
-                    class="hover:text-white hover:opacity-100 transition-all flex flex-col items-center gap-2">
+                    rel="noopener noreferrer"
+                    class="p-3 text-secondary hover:text-white transition-colors"
+                    aria-label="LinkedIn">
 
                     <span
                         class="iconify"
                         data-icon="lucide:linkedin"
-                        data-width="24">
-                    </span>
-
-                    <span class="text-xs">
-                        LinkedIn
+                        data-width="22">
                     </span>
 
                 </a>
@@ -2481,116 +658,1994 @@
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- =========================================================
-         FOOTER
-    ========================================================= -->
+    <!-- Scroll Indicator -->
 
-    <footer
-        class="py-8 px-5 text-center text-xs text-neutral-600 border-t border-white/5">
+    <div
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
 
-        <p>
-            &copy; 2026 Amritha Thirupathi Ponram. Decatur, IL.
+        <span
+            class="iconify text-white"
+            data-icon="lucide:chevron-down"
+            data-width="24">
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section
+    id="about"
+    class="py-20 sm:py-24 px-5 sm:px-6 border-t border-white/5">
+
+    <div class="max-w-4xl mx-auto space-y-6">
+
+        <h2
+            class="text-3xl md:text-4xl font-semibold text-white tracking-tight">
+            About
+        </h2>
+
+        <p
+            class="text-secondary leading-relaxed text-base sm:text-lg">
+
+            I'm an ML Engineer with a strong background in software
+            engineering, DevOps, and big-data pipelines. In my previous
+            role as a Java Full-Stack Engineer at Walmart, I worked on
+            building and maintaining end-to-end production systems that
+            supported large-scale retail operations.
+
         </p>
 
-    </footer>
+        <p
+            class="text-secondary leading-relaxed text-base sm:text-lg">
+
+            My work spanned backend development, automation, and data
+            processing — from designing Spring Boot services and batch
+            jobs to orchestrating CI/CD pipelines using Jenkins and
+            GitHub Actions.
+
+        </p>
+
+        <p
+            class="text-secondary leading-relaxed text-base sm:text-lg">
+
+            Recently, I've been expanding my expertise into AI Engineering.
+            I'm actively building hands-on projects with Python, OpenCV,
+            YOLO, and real-time computer vision while strengthening my
+            understanding of machine learning, statistics, and
+            deep-learning workflows.
+
+        </p>
+
+        <p
+            class="text-secondary leading-relaxed text-base sm:text-lg">
+
+            I'm excited to bring together my experience in backend systems,
+            automation, and big-data pipelines with my growing AI skill set
+            to build intelligent, scalable solutions in a professional
+            environment.
+
+        </p>
+
+    </div>
+
+</section>
 
 
-    <!-- =========================================================
-         CUSTOM STYLES FOR TAGS
-    ========================================================= -->
+<!-- =========================================================
+     SKILLS
+========================================================= -->
 
-    <style>
+<section
+    id="skills"
+    class="py-20 sm:py-24 px-5 sm:px-6 relative border-t border-white/5">
 
-        .skill-tag {
-            padding: 0.25rem 0.5rem;
-            font-size: 0.75rem;
-            line-height: 1rem;
-            border-radius: 0.25rem;
-            background: #262626;
-            color: #d4d4d4;
-            border: 1px solid #404040;
-        }
+    <div class="max-w-6xl mx-auto space-y-12">
 
-        .project-tag {
-            padding: 0.25rem 0.5rem;
-            font-size: 0.625rem;
-            line-height: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            border-radius: 0.25rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #a3a3a3;
-        }
+        <div class="space-y-2">
 
-    </style>
+            <h2
+                class="text-3xl md:text-4xl font-semibold text-white tracking-tight">
+                Technical Toolkit
+            </h2>
+
+            <p class="text-secondary">
+                The tools I use to build and ship ML systems.
+            </p>
+
+        </div>
 
 
-    <!-- =========================================================
-         SCROLL ANIMATION
-    ========================================================= -->
-
-    <script>
-
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
 
-        const observer = new IntersectionObserver(
-            (entries, obs) => {
+            <!-- MACHINE LEARNING -->
 
-                entries.forEach(entry => {
+            <div
+                class="group p-6 sm:p-8 rounded-2xl bg-surface/50
+                       border border-border card-hover
+                       relative overflow-hidden">
 
-                    if (entry.isIntersecting) {
+                <div
+                    class="absolute top-0 right-0 p-6 opacity-10
+                           group-hover:opacity-20 transition-opacity">
 
-                        entry.target.classList.add('animate-slide-up');
+                    <span
+                        class="iconify"
+                        data-icon="lucide:brain-circuit"
+                        data-width="80">
+                    </span>
 
-                        obs.unobserve(entry.target);
-
-                    }
-
-                });
-
-            },
-            observerOptions
-        );
+                </div>
 
 
-        document
-            .querySelectorAll('section > div')
-            .forEach(section => {
+                <div class="flex items-center gap-3 mb-6">
 
-                section.classList.add('opacity-0');
+                    <span
+                        class="p-2 rounded-lg bg-indigo-500/10
+                               text-indigo-400 border border-indigo-500/20">
 
-                observer.observe(section);
+                        <span
+                            class="iconify"
+                            data-icon="lucide:brain"
+                            data-width="20">
+                        </span>
+
+                    </span>
+
+                    <h3 class="text-xl font-medium text-white">
+                        Machine Learning
+                    </h3>
+
+                </div>
+
+
+                <ul class="space-y-3">
+
+                    <li class="flex items-center gap-2 text-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                        Regression, Classification, SVM
+                    </li>
+
+                    <li class="flex items-center gap-2 text-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                        Random Forest, XGBoost, LightGBM
+                    </li>
+
+                    <li class="flex items-center gap-2 text-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                        Cross-validation, hyperparameter tuning
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- COMPUTER VISION -->
+
+            <div
+                class="group p-6 sm:p-8 rounded-2xl bg-surface/50
+                       border border-border card-hover
+                       relative overflow-hidden">
+
+                <div
+                    class="absolute top-0 right-0 p-6 opacity-10
+                           group-hover:opacity-20 transition-opacity">
+
+                    <span
+                        class="iconify"
+                        data-icon="lucide:scan-eye"
+                        data-width="80">
+                    </span>
+
+                </div>
+
+
+                <div class="flex items-center gap-3 mb-6">
+
+                    <span
+                        class="p-2 rounded-lg bg-purple-500/10
+                               text-purple-400 border border-purple-500/20">
+
+                        <span
+                            class="iconify"
+                            data-icon="lucide:camera"
+                            data-width="20">
+                        </span>
+
+                    </span>
+
+                    <h3 class="text-xl font-medium text-white">
+                        Computer Vision
+                    </h3>
+
+                </div>
+
+
+                <ul class="space-y-3">
+
+                    <li class="flex items-center gap-2 text-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                        YOLO, OpenCV
+                    </li>
+
+                    <li class="flex items-center gap-2 text-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                        TensorFlow, PyTorch
+                    </li>
+
+                    <li class="flex items-center gap-2 text-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                        Image preprocessing, object detection
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- DEPLOYMENT -->
+
+            <div
+                class="group p-6 sm:p-8 rounded-2xl bg-surface/50
+                       border border-border card-hover
+                       relative overflow-hidden">
+
+                <div
+                    class="absolute top-0 right-0 p-6 opacity-10
+                           group-hover:opacity-20 transition-opacity">
+
+                    <span
+                        class="iconify"
+                        data-icon="lucide:layout-template"
+                        data-width="80">
+                    </span>
+
+                </div>
+
+
+                <div class="flex items-center gap-3 mb-6">
+
+                    <span
+                        class="p-2 rounded-lg bg-blue-500/10
+                               text-blue-400 border border-blue-500/20">
+
+                        <span
+                            class="iconify"
+                            data-icon="lucide:code-2"
+                            data-width="20">
+                        </span>
+
+                    </span>
+
+                    <h3 class="text-xl font-medium text-white">
+                        Deployment & APIs
+                    </h3>
+
+                </div>
+
+
+                <div class="flex flex-wrap gap-2">
+
+                    <span class="px-2 py-1 text-xs rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                        Flask
+                    </span>
+
+                    <span class="px-2 py-1 text-xs rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                        FastAPI
+                    </span>
+
+                    <span class="px-2 py-1 text-xs rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                        Render
+                    </span>
+
+                    <span class="px-2 py-1 text-xs rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                        Spring Batch
+                    </span>
+
+                    <span class="px-2 py-1 text-xs rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                        Git / CI-CD
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- DATA + NLP -->
+
+            <div
+                class="group p-6 sm:p-8 rounded-2xl bg-surface/50
+                       border border-border card-hover
+                       relative overflow-hidden
+                       md:col-span-2">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+
+                    <!-- DATA -->
+
+                    <div>
+
+                        <div class="flex items-center gap-3 mb-6">
+
+                            <span
+                                class="p-2 rounded-lg bg-emerald-500/10
+                                       text-emerald-400
+                                       border border-emerald-500/20">
+
+                                <span
+                                    class="iconify"
+                                    data-icon="lucide:database"
+                                    data-width="20">
+                                </span>
+
+                            </span>
+
+                            <h3 class="text-xl font-medium text-white">
+                                Data & Analysis
+                            </h3>
+
+                        </div>
+
+
+                        <p class="text-sm leading-relaxed mb-4">
+
+                            Comfortable across the full data pipeline —
+                            cleaning and feature engineering in Pandas/NumPy,
+                            SQL analysis, Power BI, and large-scale batch
+                            processing.
+
+                        </p>
+
+
+                        <div class="flex flex-wrap gap-2">
+
+                            <span class="px-2 py-1 text-xs rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                                Pandas / NumPy
+                            </span>
+
+                            <span class="px-2 py-1 text-xs rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                                SQL
+                            </span>
+
+                            <span class="px-2 py-1 text-xs rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                                Power BI
+                            </span>
+
+                            <span class="px-2 py-1 text-xs rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                                BigQuery
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- NLP -->
+
+                    <div
+                        class="border-t md:border-t-0
+                               md:border-l border-white/5
+                               pt-8 md:pt-0 md:pl-8">
+
+                        <div class="flex items-center gap-3 mb-6">
+
+                            <span
+                                class="p-2 rounded-lg bg-orange-500/10
+                                       text-orange-400
+                                       border border-orange-500/20">
+
+                                <span
+                                    class="iconify"
+                                    data-icon="lucide:message-square-text"
+                                    data-width="20">
+                                </span>
+
+                            </span>
+
+                            <h3 class="text-xl font-medium text-white">
+                                NLP
+                            </h3>
+
+                        </div>
+
+
+                        <div class="grid grid-cols-1 gap-3 text-sm">
+
+                            <div class="flex items-center gap-2">
+                                <span class="iconify" data-icon="lucide:type"></span>
+                                Text preprocessing & tokenization
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <span class="iconify" data-icon="lucide:hash"></span>
+                                TF-IDF / CountVectorizer
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <span class="iconify" data-icon="lucide:git-branch"></span>
+                                Sentiment & spam classification
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EXPERIENCE
+========================================================= -->
+
+<section
+    id="experience"
+    class="py-20 sm:py-24 px-5 sm:px-6 bg-surface/30">
+
+    <div class="max-w-4xl mx-auto space-y-12">
+
+        <h2
+            class="text-3xl font-semibold text-white tracking-tight">
+            Experience
+        </h2>
+
+
+        <div
+            class="relative border-l border-white/10 ml-3 space-y-12">
+
+
+            <!-- PROITBRIDGE -->
+
+            <div class="relative pl-7 sm:pl-10 group">
+
+                <div
+                    class="absolute -left-[5px] top-2 h-2.5 w-2.5
+                           rounded-full bg-white ring-4 ring-background
+                           group-hover:bg-indigo-400 transition-colors">
+                </div>
+
+
+                <div
+                    class="flex flex-col sm:flex-row
+                           sm:items-baseline
+                           sm:justify-between
+                           gap-2 mb-2">
+
+                    <h3 class="text-xl font-medium text-white">
+                        Machine Learning Engineer
+                    </h3>
+
+                    <span class="text-sm font-mono text-secondary">
+                        Apr 2026 – Present
+                    </span>
+
+                </div>
+
+
+                <div class="text-lg text-white mb-2">
+                    ProITBridge
+                </div>
+
+
+                <p
+                    class="text-sm text-secondary leading-relaxed
+                           max-w-2xl mb-3">
+
+                    Owning the full ML lifecycle across computer vision,
+                    NLP, and predictive-modeling projects — from problem
+                    framing through deployment.
+
+                </p>
+
+
+                <ul class="space-y-2 text-sm text-secondary">
+
+                    <li class="flex gap-2">
+                        <span class="text-indigo-400 mt-1">›</span>
+                        Built a YOLO-based weld-defect detection model
+                        reaching 94% precision on held-out test data.
+                    </li>
+
+                    <li class="flex gap-2">
+                        <span class="text-indigo-400 mt-1">›</span>
+                        Reduced false negatives by 30% on a clinical-risk
+                        prediction task via class-imbalance correction.
+                    </li>
+
+                    <li class="flex gap-2">
+                        <span class="text-indigo-400 mt-1">›</span>
+                        Mentored a junior engineer on ML fundamentals and
+                        project workflow.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CAREER BREAK -->
+
+            <div class="relative pl-7 sm:pl-10 group">
+
+                <div
+                    class="absolute -left-[7px] top-1 h-4 w-4
+                           rounded-full bg-indigo-500/20
+                           border border-indigo-400
+                           ring-4 ring-background
+                           flex items-center justify-center">
+
+                    <div class="h-1.5 w-1.5 rounded-full bg-indigo-400"></div>
+
+                </div>
+
+
+                <div
+                    class="flex flex-col sm:flex-row
+                           sm:items-baseline
+                           sm:justify-between
+                           gap-2 mb-2">
+
+                    <h3 class="text-xl font-medium text-white">
+                        Career Break & AI Upskilling
+                    </h3>
+
+                    <span class="text-sm font-mono text-secondary">
+                        Jan 2023 – Mar 2026
+                    </span>
+
+                </div>
+
+
+                <div class="text-lg text-indigo-300 mb-3">
+                    Personal Milestones · Professional Development
+                </div>
+
+
+                <p
+                    class="text-sm text-secondary leading-relaxed
+                           max-w-2xl mb-4">
+
+                    After my role at Walmart, I took a career break to focus
+                    on personal milestones, including marriage and starting
+                    a family. I used the period intentionally to strengthen
+                    my AI and machine learning skills through coursework and
+                    hands-on projects in computer vision, NLP, and predictive
+                    modeling.
+
+                </p>
+
+
+                <ul class="space-y-2 text-sm text-secondary">
+
+                    <li class="flex gap-2">
+                        <span class="text-indigo-400 mt-1">›</span>
+                        Built hands-on ML projects spanning YOLO-based
+                        computer vision, NLP classification, and predictive
+                        modeling.
+                    </li>
+
+                    <li class="flex gap-2">
+                        <span class="text-indigo-400 mt-1">›</span>
+                        Strengthened Python, scikit-learn, OpenCV, PyTorch,
+                        model evaluation, and deployment skills.
+                    </li>
+
+                    <li class="flex gap-2">
+                        <span class="text-indigo-400 mt-1">›</span>
+                        Developed portfolio projects to demonstrate practical,
+                        end-to-end AI engineering capabilities.
+                    </li>
+
+                    <li class="flex gap-2">
+                        <span class="text-indigo-400 mt-1">›</span>
+                        Returned to the workforce in April 2026 and transitioned
+                        directly into applied ML engineering at ProITBridge.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- WALMART -->
+
+            <div class="relative pl-7 sm:pl-10 group">
+
+                <div
+                    class="absolute -left-[5px] top-2 h-2.5 w-2.5
+                           rounded-full bg-neutral-600
+                           ring-4 ring-background
+                           group-hover:bg-indigo-400 transition-colors">
+                </div>
+
+
+                <div
+                    class="flex flex-col sm:flex-row
+                           sm:items-baseline
+                           sm:justify-between
+                           gap-2 mb-2">
+
+                    <h3 class="text-xl font-medium text-white">
+                        Data Engineer
+                    </h3>
+
+                    <span class="text-sm font-mono text-secondary">
+                        Jan 2021 – Dec 2022
+                    </span>
+
+                </div>
+
+
+                <div class="text-lg text-white mb-2">
+                    Walmart (via Cognizant Technology Solutions)
+                </div>
+
+
+                <p
+                    class="text-sm text-secondary leading-relaxed
+                           max-w-2xl mb-3">
+
+                    Built and maintained Java/Spring Boot/Spring Batch
+                    pipelines calculating daily inventory adjustments
+                    across 8,931 stores and departments.
+
+                </p>
+
+
+                <ul class="space-y-2 text-sm text-secondary">
+
+                    <li class="flex gap-2">
+                        <span class="text-indigo-400 mt-1">›</span>
+                        Cut manual correction effort by 55% with an
+                        automated inventory-accuracy fix.
+                    </li>
+
+                    <li class="flex gap-2">
+                        <span class="text-indigo-400 mt-1">›</span>
+                        Led a Spring Boot version upgrade with zero
+                        production downtime.
+                    </li>
+
+                    <li class="flex gap-2">
+                        <span class="text-indigo-400 mt-1">›</span>
+                        Mentored a junior engineer on data pipeline
+                        development and debugging.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TEACHING
+========================================================= -->
+
+<section
+    id="teaching"
+    class="py-20 sm:py-24 px-5 sm:px-6 border-t border-white/5">
+
+    <div class="max-w-4xl mx-auto space-y-10">
+
+        <div class="space-y-2">
+
+            <h2
+                class="text-3xl md:text-4xl font-semibold text-white tracking-tight">
+
+                Teaching & Mentoring
+
+            </h2>
+
+            <p class="text-secondary">
+                Breaking complex ideas down until they click for someone else.
+            </p>
+
+        </div>
+
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+
+            <div
+                class="p-6 rounded-2xl bg-surface/50
+                       border border-border card-hover">
+
+                <span
+                    class="iconify text-indigo-400 mb-3"
+                    data-icon="lucide:users"
+                    data-width="24">
+                </span>
+
+                <h3 class="text-white font-medium mb-2">
+                    ProITBridge
+                </h3>
+
+                <p class="text-sm text-secondary">
+
+                    Mentored a junior engineer on ML fundamentals and
+                    project workflow — pairing on code reviews and
+                    model-building decisions.
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="p-6 rounded-2xl bg-surface/50
+                       border border-border card-hover">
+
+                <span
+                    class="iconify text-indigo-400 mb-3"
+                    data-icon="lucide:users"
+                    data-width="24">
+                </span>
+
+                <h3 class="text-white font-medium mb-2">
+                    Walmart (via Cognizant)
+                </h3>
+
+                <p class="text-sm text-secondary">
+
+                    Mentored a junior engineer on data pipeline development
+                    and debugging, helping them ramp up on the team's codebase.
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="p-6 rounded-2xl bg-surface/50
+                       border border-border card-hover">
+
+                <span
+                    class="iconify text-indigo-400 mb-3"
+                    data-icon="lucide:graduation-cap"
+                    data-width="24">
+                </span>
+
+                <h3 class="text-white font-medium mb-2">
+                    College Seminar
+                </h3>
+
+                <p class="text-sm text-secondary">
+
+                    Led informal peer-teaching sessions, breaking down
+                    technical topics for classmates in plain,
+                    accessible language.
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="p-6 rounded-2xl bg-surface/50
+                       border border-border card-hover">
+
+                <span
+                    class="iconify text-indigo-400 mb-3"
+                    data-icon="lucide:message-circle"
+                    data-width="24">
+                </span>
+
+                <h3 class="text-white font-medium mb-2">
+                    Ongoing
+                </h3>
+
+                <p class="text-sm text-secondary">
+
+                    Regularly translates technical model behavior for
+                    cross-functional, non-technical stakeholders.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section
+    id="projects"
+    class="py-20 sm:py-24 px-5 sm:px-6 relative">
+
+    <div class="max-w-6xl mx-auto space-y-12">
+
+        <div class="space-y-2">
+
+            <h2
+                class="text-3xl md:text-4xl font-semibold text-white tracking-tight">
+
+                Featured Projects
+
+            </h2>
+
+            <p class="text-secondary">
+                End-to-end ML systems, from data to deployed demo.
+            </p>
+
+        </div>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+
+            <!-- =====================================================
+                 WELD DEFECT DETECTION
+            ====================================================== -->
+
+            <article
+                class="group relative rounded-xl bg-surface
+                       border border-border overflow-hidden
+                       hover:border-neutral-600 transition-colors">
+
+                <div
+                    class="aspect-video bg-neutral-900 relative overflow-hidden">
+
+                    <div class="project-visual">
+
+                        <svg
+                            viewBox="0 0 800 450"
+                            xmlns="http://www.w3.org/2000/svg">
+
+                            <defs>
+
+                                <linearGradient
+                                    id="weldBg"
+                                    x1="0"
+                                    y1="0"
+                                    x2="1"
+                                    y2="1">
+
+                                    <stop offset="0%" stop-color="#111827" />
+                                    <stop offset="50%" stop-color="#1e1b4b" />
+                                    <stop offset="100%" stop-color="#09090b" />
+
+                                </linearGradient>
+
+                                <linearGradient
+                                    id="metal"
+                                    x1="0"
+                                    y1="0"
+                                    x2="1"
+                                    y2="0">
+
+                                    <stop offset="0%" stop-color="#374151" />
+                                    <stop offset="50%" stop-color="#9ca3af" />
+                                    <stop offset="100%" stop-color="#374151" />
+
+                                </linearGradient>
+
+                            </defs>
+
+
+                            <rect
+                                width="800"
+                                height="450"
+                                fill="url(#weldBg)" />
+
+
+                            <g
+                                opacity="0.12"
+                                stroke="#ffffff">
+
+                                <line x1="0" y1="75" x2="800" y2="75" />
+                                <line x1="0" y1="150" x2="800" y2="150" />
+                                <line x1="0" y1="225" x2="800" y2="225" />
+                                <line x1="0" y1="300" x2="800" y2="300" />
+                                <line x1="0" y1="375" x2="800" y2="375" />
+
+                                <line x1="100" y1="0" x2="100" y2="450" />
+                                <line x1="200" y1="0" x2="200" y2="450" />
+                                <line x1="300" y1="0" x2="300" y2="450" />
+                                <line x1="400" y1="0" x2="400" y2="450" />
+                                <line x1="500" y1="0" x2="500" y2="450" />
+                                <line x1="600" y1="0" x2="600" y2="450" />
+                                <line x1="700" y1="0" x2="700" y2="450" />
+
+                            </g>
+
+
+                            <rect
+                                x="130"
+                                y="130"
+                                width="540"
+                                height="190"
+                                rx="10"
+                                fill="url(#metal)"
+                                opacity="0.45" />
+
+
+                            <path
+                                d="M180 260 L620 260"
+                                stroke="#d1d5db"
+                                stroke-width="18"
+                                stroke-linecap="round"
+                                opacity="0.8" />
+
+
+                            <path
+                                d="M180 260
+                                   C230 245 260 275 310 258
+                                   C360 240 400 275 450 258
+                                   C500 240 550 275 620 255"
+                                fill="none"
+                                stroke="#818cf8"
+                                stroke-width="7"
+                                opacity="0.8" />
+
+
+                            <g class="weld-defect">
+
+                                <rect
+                                    x="260"
+                                    y="215"
+                                    width="85"
+                                    height="75"
+                                    rx="4"
+                                    fill="none"
+                                    stroke="#818cf8"
+                                    stroke-width="3" />
+
+                                <rect
+                                    x="470"
+                                    y="210"
+                                    width="90"
+                                    height="80"
+                                    rx="4"
+                                    fill="none"
+                                    stroke="#a78bfa"
+                                    stroke-width="3" />
+
+                            </g>
+
+
+                            <g
+                                font-family="monospace"
+                                font-size="16">
+
+                                <rect
+                                    x="260"
+                                    y="185"
+                                    width="85"
+                                    height="25"
+                                    rx="4"
+                                    fill="#6366f1"
+                                    opacity="0.9" />
+
+                                <text
+                                    x="270"
+                                    y="202"
+                                    fill="white">
+                                    CRACK
+                                </text>
+
+
+                                <rect
+                                    x="470"
+                                    y="180"
+                                    width="90"
+                                    height="25"
+                                    rx="4"
+                                    fill="#7c3aed"
+                                    opacity="0.9" />
+
+                                <text
+                                    x="480"
+                                    y="197"
+                                    fill="white">
+                                    POROSITY
+                                </text>
+
+                            </g>
+
+
+                            <rect
+                                class="weld-beam"
+                                x="0"
+                                y="95"
+                                width="8"
+                                height="260"
+                                fill="#818cf8"
+                                opacity="0.9" />
+
+
+                            <circle
+                                class="weld-pulse"
+                                cx="690"
+                                cy="70"
+                                r="10"
+                                fill="#6366f1" />
+
+
+                            <text
+                                x="715"
+                                y="76"
+                                fill="#d1d5db"
+                                font-family="monospace"
+                                font-size="14">
+                                YOLO DETECTION
+                            </text>
+
+
+                            <text
+                                x="30"
+                                y="420"
+                                fill="#9ca3af"
+                                font-family="monospace"
+                                font-size="14">
+                                WELD INSPECTION // OBJECT DETECTION
+                            </text>
+
+                        </svg>
+
+                    </div>
+
+                </div>
+
+
+                <div class="p-6 space-y-4">
+
+                    <div class="flex justify-between items-start gap-4">
+
+                        <div>
+
+                            <h3
+                                class="text-lg font-semibold text-white mb-1
+                                       group-hover:text-indigo-300 transition-colors">
+
+                                Weld Defect Detection
+
+                            </h3>
+
+                            <p class="text-xs text-secondary">
+                                Industrial QA · Computer Vision
+                            </p>
+
+                        </div>
+
+
+                        <div class="flex gap-1 shrink-0">
+
+                            <a
+                                href="https://github.com/Amritha-TP/weld-quality-inspection-yolo"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="p-2 rounded-full hover:bg-white/10 text-white"
+                                aria-label="GitHub code">
+
+                                <span
+                                    class="iconify"
+                                    data-icon="lucide:github"
+                                    data-width="18">
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                href="https://weld-quality-inspection-yolo.onrender.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="p-2 rounded-full hover:bg-white/10 text-white"
+                                aria-label="Live demo">
+
+                                <span
+                                    class="iconify"
+                                    data-icon="lucide:arrow-up-right"
+                                    data-width="18">
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="text-sm text-secondary">
+
+                        End-to-end YOLOv8 object detection pipeline identifying
+                        and localizing weld defects — cracks, porosity, undercut —
+                        reaching 94% precision on held-out test data.
+
+                    </p>
+
+
+                    <div class="flex gap-2 pt-2 flex-wrap">
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            YOLOv8
+                        </span>
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            OpenCV
+                        </span>
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            Flask
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================================
+                 SENTIMENT ANALYSIS
+            ====================================================== -->
+
+            <article
+                class="group relative rounded-xl bg-surface
+                       border border-border overflow-hidden
+                       hover:border-neutral-600 transition-colors">
+
+                <div
+                    class="aspect-video bg-neutral-900 relative overflow-hidden">
+
+                    <div class="project-visual">
+
+                        <svg
+                            viewBox="0 0 800 450"
+                            xmlns="http://www.w3.org/2000/svg">
+
+                            <defs>
+
+                                <linearGradient
+                                    id="sentimentBg"
+                                    x1="0"
+                                    y1="0"
+                                    x2="1"
+                                    y2="1">
+
+                                    <stop offset="0%" stop-color="#1e1033" />
+                                    <stop offset="50%" stop-color="#25113f" />
+                                    <stop offset="100%" stop-color="#09090b" />
+
+                                </linearGradient>
+
+                                <linearGradient
+                                    id="barGradient"
+                                    x1="0"
+                                    y1="1"
+                                    x2="0"
+                                    y2="0">
+
+                                    <stop offset="0%" stop-color="#7c3aed" />
+                                    <stop offset="100%" stop-color="#c084fc" />
+
+                                </linearGradient>
+
+                            </defs>
+
+
+                            <rect
+                                width="800"
+                                height="450"
+                                fill="url(#sentimentBg)" />
+
+
+                            <g
+                                opacity="0.12"
+                                stroke="#ffffff">
+
+                                <line x1="80" y1="100" x2="720" y2="100" />
+                                <line x1="80" y1="170" x2="720" y2="170" />
+                                <line x1="80" y1="240" x2="720" y2="240" />
+                                <line x1="80" y1="310" x2="720" y2="310" />
+
+                                <line x1="180" y1="70" x2="180" y2="350" />
+                                <line x1="280" y1="70" x2="280" y2="350" />
+                                <line x1="380" y1="70" x2="380" y2="350" />
+                                <line x1="480" y1="70" x2="480" y2="350" />
+                                <line x1="580" y1="70" x2="580" y2="350" />
+                                <line x1="680" y1="70" x2="680" y2="350" />
+
+                            </g>
+
+
+                            <text
+                                x="80"
+                                y="55"
+                                fill="#e9d5ff"
+                                font-family="monospace"
+                                font-size="18">
+                                SENTIMENT ANALYSIS
+                            </text>
+
+
+                            <text
+                                x="620"
+                                y="55"
+                                fill="#a78bfa"
+                                font-family="monospace"
+                                font-size="13">
+                                LIVE NLP
+                            </text>
+
+
+                            <rect
+                                class="sentiment-bar"
+                                x="145"
+                                y="175"
+                                width="70"
+                                height="140"
+                                rx="6"
+                                fill="url(#barGradient)" />
+
+                            <rect
+                                class="sentiment-bar"
+                                x="265"
+                                y="135"
+                                width="70"
+                                height="180"
+                                rx="6"
+                                fill="url(#barGradient)"
+                                style="animation-delay: .4s;" />
+
+                            <rect
+                                class="sentiment-bar"
+                                x="385"
+                                y="210"
+                                width="70"
+                                height="105"
+                                rx="6"
+                                fill="url(#barGradient)"
+                                style="animation-delay: .8s;" />
+
+                            <rect
+                                class="sentiment-bar"
+                                x="505"
+                                y="155"
+                                width="70"
+                                height="160"
+                                rx="6"
+                                fill="url(#barGradient)"
+                                style="animation-delay: 1.2s;" />
+
+
+                            <g
+                                fill="#a1a1aa"
+                                font-family="monospace"
+                                font-size="13"
+                                text-anchor="middle">
+
+                                <text x="180" y="340">
+                                    POSITIVE
+                                </text>
+
+                                <text x="300" y="340">
+                                    NEUTRAL
+                                </text>
+
+                                <text x="420" y="340">
+                                    NEGATIVE
+                                </text>
+
+                                <text x="540" y="340">
+                                    ALERT
+                                </text>
+
+                            </g>
+
+
+                            <g
+                                fill="#e9d5ff"
+                                font-family="monospace"
+                                font-size="14"
+                                text-anchor="middle">
+
+                                <text x="180" y="165">
+                                    0.78
+                                </text>
+
+                                <text x="300" y="125">
+                                    0.91
+                                </text>
+
+                                <text x="420" y="200">
+                                    0.54
+                                </text>
+
+                                <text x="540" y="145">
+                                    0.82
+                                </text>
+
+                            </g>
+
+
+                            <g class="sentiment-pulse">
+
+                                <rect
+                                    x="585"
+                                    y="365"
+                                    width="145"
+                                    height="38"
+                                    rx="8"
+                                    fill="#581c87"
+                                    opacity="0.8" />
+
+                                <circle
+                                    cx="605"
+                                    cy="384"
+                                    r="6"
+                                    fill="#c084fc" />
+
+                                <text
+                                    x="620"
+                                    y="389"
+                                    fill="#f3e8ff"
+                                    font-family="monospace"
+                                    font-size="12">
+                                    TELEGRAM ALERT
+                                </text>
+
+                            </g>
+
+
+                            <circle
+                                class="sentiment-dot"
+                                cx="100"
+                                cy="380"
+                                r="5"
+                                fill="#c084fc" />
+
+                            <circle
+                                class="sentiment-dot"
+                                cx="120"
+                                cy="380"
+                                r="5"
+                                fill="#a78bfa"
+                                style="animation-delay: .3s;" />
+
+                            <circle
+                                class="sentiment-dot"
+                                cx="140"
+                                cy="380"
+                                r="5"
+                                fill="#8b5cf6"
+                                style="animation-delay: .6s;" />
+
+
+                            <text
+                                x="80"
+                                y="410"
+                                fill="#71717a"
+                                font-family="monospace"
+                                font-size="13">
+                                TF-IDF → CLASSIFIER → ALERT
+                            </text>
+
+                        </svg>
+
+                    </div>
+
+                </div>
+
+
+                <div class="p-6 space-y-4">
+
+                    <div class="flex justify-between items-start gap-4">
+
+                        <div>
+
+                            <h3
+                                class="text-lg font-semibold text-white mb-1
+                                       group-hover:text-purple-300 transition-colors">
+
+                                Customer Feedback Sentiment Analysis
+
+                            </h3>
+
+                            <p class="text-xs text-secondary">
+                                NLP · Alerting System
+                            </p>
+
+                        </div>
+
+
+                        <div class="flex gap-1 shrink-0">
+
+                            <a
+                                href="https://github.com/Amritha-TP/customer-feedback-analysis-alert"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="p-2 rounded-full hover:bg-white/10 text-white"
+                                aria-label="GitHub code">
+
+                                <span
+                                    class="iconify"
+                                    data-icon="lucide:github"
+                                    data-width="18">
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                href="https://customer-feedback-analysis-alert.onrender.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="p-2 rounded-full hover:bg-white/10 text-white"
+                                aria-label="Live demo">
+
+                                <span
+                                    class="iconify"
+                                    data-icon="lucide:arrow-up-right"
+                                    data-width="18">
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="text-sm text-secondary">
+
+                        Modular NLP pipeline for sentiment classification,
+                        deployed via FastAPI with real-time predictions and
+                        Telegram alerts for negative feedback.
+
+                    </p>
+
+
+                    <div class="flex gap-2 pt-2 flex-wrap">
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            TF-IDF
+                        </span>
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            FastAPI
+                        </span>
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            Telegram API
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================================
+                 SPAM DETECTION
+            ====================================================== -->
+
+            <article
+                class="group relative rounded-xl bg-surface
+                       border border-border overflow-hidden
+                       hover:border-neutral-600 transition-colors">
+
+                <div
+                    class="aspect-video bg-neutral-900 relative overflow-hidden">
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr
+                               from-red-900/20 to-neutral-900
+                               group-hover:scale-105
+                               transition-transform duration-500">
+                    </div>
+
+                    <div
+                        class="absolute inset-0 flex items-center justify-center">
+
+                        <span
+                            class="iconify text-red-500/30"
+                            data-icon="lucide:shield-alert"
+                            data-width="64">
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="p-6 space-y-4">
+
+                    <div class="flex justify-between items-start gap-4">
+
+                        <div>
+
+                            <h3
+                                class="text-lg font-semibold text-white mb-1
+                                       group-hover:text-red-300 transition-colors">
+
+                                Email Spam Detection
+
+                            </h3>
+
+                            <p class="text-xs text-secondary">
+                                NLP · Classification
+                            </p>
+
+                        </div>
+
+
+                        <div class="flex gap-1">
+
+                            <a
+                                href="https://github.com/Amritha-TP/SmartMail-NLP-Spam-Classification-System"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="p-2 rounded-full hover:bg-white/10 text-white"
+                                aria-label="GitHub code">
+
+                                <span
+                                    class="iconify"
+                                    data-icon="lucide:github"
+                                    data-width="18">
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="text-sm text-secondary">
+
+                        End-to-end spam/ham classifier — text preprocessing,
+                        CountVectorizer features, and a FastAPI serving layer,
+                        with a pipeline structured to prevent data leakage.
+
+                    </p>
+
+
+                    <div class="flex gap-2 pt-2 flex-wrap">
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            Scikit-learn
+                        </span>
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            FastAPI
+                        </span>
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            Joblib
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================================
+                 CUSTOMER SHOPPING
+            ====================================================== -->
+
+            <article
+                class="group relative rounded-xl bg-surface
+                       border border-border overflow-hidden
+                       hover:border-neutral-600 transition-colors">
+
+                <div
+                    class="aspect-video bg-neutral-900 relative overflow-hidden">
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr
+                               from-emerald-900/20 to-neutral-900
+                               group-hover:scale-105
+                               transition-transform duration-500">
+                    </div>
+
+                    <div
+                        class="absolute inset-0 flex items-center justify-center">
+
+                        <span
+                            class="iconify text-emerald-500/30"
+                            data-icon="lucide:bar-chart-3"
+                            data-width="64">
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="p-6 space-y-4">
+
+                    <div class="flex justify-between items-start gap-4">
+
+                        <div>
+
+                            <h3
+                                class="text-lg font-semibold text-white mb-1
+                                       group-hover:text-emerald-300 transition-colors">
+
+                                Customer Shopping Behavior Analysis
+
+                            </h3>
+
+                            <p class="text-xs text-secondary">
+                                Retail Analytics · Dashboarding
+                            </p>
+
+                        </div>
+
+
+                        <div class="flex gap-1">
+
+                            <a
+                                href="https://github.com/Amritha-TP/customer-shopping-behavior-analysis"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="p-2 rounded-full hover:bg-white/10 text-white"
+                                aria-label="GitHub code">
+
+                                <span
+                                    class="iconify"
+                                    data-icon="lucide:github"
+                                    data-width="18">
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="text-sm text-secondary">
+
+                        End-to-end analysis of 3,900 retail customers —
+                        Python cleaning and feature engineering, 10 SQL
+                        business-question queries, and a Power BI dashboard.
+
+                    </p>
+
+
+                    <div class="flex gap-2 pt-2 flex-wrap">
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            Pandas
+                        </span>
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            SQL
+                        </span>
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            Power BI
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================================
+                 DIABETES
+            ====================================================== -->
+
+            <article
+                class="group relative rounded-xl bg-surface
+                       border border-border overflow-hidden
+                       hover:border-neutral-600 transition-colors
+                       md:col-span-2">
+
+                <div class="p-6 space-y-4">
+
+                    <div
+                        class="flex flex-col sm:flex-row
+                               justify-between items-start gap-4">
+
+                        <div>
+
+                            <h3 class="text-lg font-semibold text-white mb-1">
+
+                                Predictive Modeling Portfolio —
+                                Diabetes Risk Prediction
+
+                            </h3>
+
+                            <p class="text-xs text-secondary">
+                                Healthcare · Predictive Modeling
+                            </p>
+
+                        </div>
+
+
+                        <span
+                            class="text-xs text-secondary italic px-3 py-1">
+
+                            Code walkthrough available on request
+
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-sm text-secondary max-w-3xl">
+
+                        Benchmarked Logistic Regression, Random Forest,
+                        XGBoost, and LightGBM on a diabetic patient dataset.
+                        Reduced false negatives by 30% versus baseline through
+                        feature engineering and class-imbalance correction —
+                        evaluated with precision, recall, F1, and ROC-AUC
+                        rather than accuracy alone, to match real clinical
+                        priorities.
+
+                    </p>
+
+
+                    <div class="flex gap-2 pt-2 flex-wrap">
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            XGBoost
+                        </span>
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            LightGBM
+                        </span>
+
+                        <span class="px-2 py-1 text-[10px] uppercase tracking-wider rounded border border-white/10 text-neutral-400">
+                            Scikit-learn
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+    id="contact"
+    class="py-20 sm:py-24 px-5 sm:px-6
+           border-t border-white/5
+           bg-gradient-to-b from-background to-surface/20">
+
+    <div class="max-w-3xl mx-auto text-center space-y-8">
+
+        <h2
+            class="text-3xl sm:text-4xl font-semibold
+                   text-white tracking-tight">
+
+            Let's build something intelligent.
+
+        </h2>
+
+
+        <p
+            class="text-secondary text-base sm:text-lg leading-relaxed">
+
+            I'm currently exploring opportunities in machine learning
+            engineering and AI education. If you'd like to talk, I'll
+            get back to you as soon as I can.
+
+        </p>
+
+
+        <div
+            class="flex flex-col sm:flex-row
+                   justify-center gap-4 pt-6">
+
+            <a
+                href="mailto:amritha.tponram@gmail.com"
+                class="group flex items-center justify-center gap-3
+                       px-6 py-3
+                       bg-white text-black
+                       rounded-lg font-medium
+                       hover:scale-105 transition-transform">
+
+                <span
+                    class="iconify"
+                    data-icon="lucide:mail">
+                </span>
+
+                <span>
+                    amritha.tponram@gmail.com
+                </span>
+
+            </a>
+
+
+            <a
+                href="tel:+12176193209"
+                class="group flex items-center justify-center gap-3
+                       px-6 py-3
+                       border border-border
+                       rounded-lg font-medium
+                       hover:bg-white/5 transition-colors">
+
+                <span
+                    class="iconify"
+                    data-icon="lucide:phone">
+                </span>
+
+                <span>
+                    +1 (217) 619-3209
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <div
+            class="flex justify-center items-center gap-8 pt-12 opacity-70">
+
+            <a
+                href="https://github.com/Amritha-TP"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-white hover:opacity-100
+                       transition-all flex flex-col
+                       items-center gap-2">
+
+                <span
+                    class="iconify"
+                    data-icon="lucide:github"
+                    data-width="24">
+                </span>
+
+                <span class="text-xs">
+                    GitHub
+                </span>
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/in/amritha-t-p-ab735a1a6/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-white hover:opacity-100
+                       transition-all flex flex-col
+                       items-center gap-2">
+
+                <span
+                    class="iconify"
+                    data-icon="lucide:linkedin"
+                    data-width="24">
+                </span>
+
+                <span class="text-xs">
+                    LinkedIn
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer
+    class="py-8 px-5 text-center text-xs text-neutral-600
+           border-t border-white/5">
+
+    <p>
+        &copy; 2026 Amritha Thirupathi Ponram. Decatur, IL.
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     SCROLL ANIMATION
+========================================================= -->
+
+<script>
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+
+    const observer = new IntersectionObserver(
+        (entries, obs) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add('animate-slide-up');
+
+                    obs.unobserve(entry.target);
+
+                }
 
             });
 
+        },
+        observerOptions
+    );
 
-        /* =========================================================
-           CLOSE MOBILE MENU AFTER CLICK
-        ========================================================= */
 
-        document
-            .querySelectorAll('#mobile-menu a')
-            .forEach(link => {
+    document
+        .querySelectorAll('section > div')
+        .forEach(section => {
 
-                link.addEventListener('click', () => {
+            section.classList.add('opacity-0');
 
-                    document
-                        .getElementById('mobile-menu')
-                        .classList.add('hidden');
+            observer.observe(section);
 
-                });
+        });
+
+
+    /* Close mobile menu after clicking a navigation link */
+
+    document
+        .querySelectorAll('#mobile-menu a')
+        .forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                document
+                    .getElementById('mobile-menu')
+                    .classList.add('hidden');
 
             });
 
-    </script>
+        });
+
+</script>
+
 
 </body>
 
